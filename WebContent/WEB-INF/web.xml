@@ -36,5 +36,16 @@
 		<url-pattern>/modify.html</url-pattern>
 
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AccountServlet</servlet-name>
+		<servlet-class>fr.formation.proxi.presentation.AccountServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AccountServlet</servlet-name>
+		<url-pattern>/account.html</url-pattern>
+
+	</servlet-mapping>
 
 </web-app>

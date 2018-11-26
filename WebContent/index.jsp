@@ -60,7 +60,7 @@
 						</a>
 					</div>
 					<div>
-						<a href="vers Comptes">
+						<a href="account.html?id=${client.id}">
 							<button>Comptes</button>
 						</a>
 					</div>
