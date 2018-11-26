@@ -8,11 +8,12 @@ public class MySqlConnection {
 
 	public static final MySqlConnection INSTANCE = new MySqlConnection();
 
-	public static MySqlConnection getinstance() {
+	public static MySqlConnection getInstance() {
 		return MySqlConnection.INSTANCE;
 	}
 
 	private Connection conn;
+	
 	private boolean isConnected;
 
 	public Connection getConn() {

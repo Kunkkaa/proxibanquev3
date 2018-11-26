@@ -11,14 +11,7 @@ import java.util.List;
 public interface Dao<T> {
 	
 	
-	
-	/**
-	 * Crée une nouvelle entité de base de données.
-	 * 
-	 * @param entity l'entité à créer 
-	 * @return T l'entité avec son identifiant rempli
-	 */
-	public T create(T entity);
+
 	
 	
 	
@@ -40,7 +33,7 @@ public interface Dao<T> {
 	 * 
 	 * @return List<T> la liste de toutes les entités lues.
 	 */
-	public List<T> readall();
+	public List<T> readAll();
 	
 	
 	
@@ -54,12 +47,6 @@ public interface Dao<T> {
 	
 	
 	
-	/**
-	 * 
-	 * @param entity l'entité à supprimer 
-	 * @return si l'entité a été supprimé renvoie vrai else renvoi faux
-	 */
-	public boolean delete(Integer id);
 	
 	
 }

@@ -1,39 +1,65 @@
 package fr.formation.proxi.persistance;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.formation.proxi.metier.entity.Client;
 
 public class ClientDao implements Dao<Client>{
 
-	@Override
-	public Client create(Client entity) {
-		// TODO Auto-generated method stub
-		return null;
+	private MySqlConnection conn;
+
+	public ClientDao() {
+		this.conn = MySqlConnection.getInstance();
 	}
 
-	@Override
 	public Client read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Client client = null;
+
+		try {
+			Statement st = this.conn.getConn().createStatement();
+			ResultSet rs = st.executeQuery(String.format(SqlQueries.SELECT_CLIENT_BY_ID, id));
+			while (rs.next()) {
+				String firstname = rs.getString("firstname");
+				String lastname = rs.getString("lastname");
+				String email = rs.getString("email");
+				String address = rs.getString("address");
+				client = new Client(firstname, lastname, email, address);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return client;
 	}
 
-	@Override
-	public List<Client> readall() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Client> readAll() {
+		List<Client> clients = new ArrayList<>();
+		try {
+			Statement st = this.conn.getConn().createStatement();
+			ResultSet rs = st.executeQuery(SqlQueries.SELECT_ALL_CLIENTS);
+			while (rs.next()) {
+				String firstname = rs.getString("firstname");
+				String lastname = rs.getString("lastname");
+				String email = rs.getString("email");
+				String address = rs.getString("address");
+				Client client = new Client(firstname, lastname, email, address);
+				clients.add(client);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return clients;
 	}
 
-	@Override
 	public Client update(Client entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean delete(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		Client client = null;
+		return client;
 	}
 
 }
