@@ -17,6 +17,7 @@ public class ClientDao implements Dao<Client>{
 	}
 
 	public Client read(Integer id) {
+		
 		Client client = null;
 
 		try {
@@ -62,8 +63,20 @@ public class ClientDao implements Dao<Client>{
 	}
 
 	public Client update(Client entity) {
-		Client client = null;
-		return client;
+
+		try {
+			Statement st = this.mySqlConn.getConn().createStatement();
+			st.executeUpdate(String.format(
+					SqlQueries.UPDATE_CLIENT, entity.getLastname(), entity.getFirstname(), entity.getEmail(), entity.getAddress(), entity.getId()));
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return entity; 
+		
+		
 	}
 
 }

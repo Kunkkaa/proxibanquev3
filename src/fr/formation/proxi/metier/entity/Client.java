@@ -39,6 +39,11 @@ public class Client {
 		this.address = address;
 	}
 
+	public Client(Integer id, String firstname, String lastname, String email, String address) {
+		this(firstname, lastname, email, address);
+		this.id = id;
+	}
+
 	public Integer getId() {
 		return id;
 	}

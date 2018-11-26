@@ -50,5 +50,15 @@ public class ClientService {
 		return transferOK;
 		}
 	}
+	
+	public Client read(Integer id) {
+		
+		
+		return this.daoClient.read(id);
+	}
+
+	public void update(Client client) {
+		this.daoClient.update(client);
+	}
 
 }
