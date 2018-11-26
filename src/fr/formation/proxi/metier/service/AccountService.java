@@ -27,7 +27,37 @@ public class AccountService {
 	public AccountDao getDao() {
 		return this.dao;
 	}
-	
-	
+
+	public List<Account> getAllSavingAccounts(Integer idClient) {
+		List<Account> SavingAccounts = new ArrayList<>();
+
+		List<Account> accounts = new ArrayList<>();
+		accounts = this.dao.readAllAccountsForOneClient(idClient);
+
+		for (Account account : accounts) {
+			if (account.isSavings()) {
+				SavingAccounts.add(account);
+			}
+		}
+
+		return SavingAccounts;
+
+	}
+
+	public List<Account> getAllCurrentAccounts(Integer idClient) {
+		List<Account> CurrentAccounts = new ArrayList<>();
+
+		List<Account> accounts = new ArrayList<>();
+		accounts = this.dao.readAllAccountsForOneClient(idClient);
+
+		for (Account account : accounts) {
+			if (!account.isSavings()) {
+				CurrentAccounts.add(account);
+			}
+		}
+
+		return CurrentAccounts;
+
+	}
 
 }
