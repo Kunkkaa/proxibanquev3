@@ -26,5 +26,15 @@
 		<url-pattern>/transfer.html</url-pattern>
 
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>EditorServlet</servlet-name>
+		<servlet-class>fr.formation.proxi.presentation.EditorServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EditorServlet</servlet-name>
+		<url-pattern>/modify.html</url-pattern>
+
+	</servlet-mapping>
 
 </web-app>

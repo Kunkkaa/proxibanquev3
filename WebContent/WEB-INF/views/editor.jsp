@@ -8,6 +8,6 @@
 <title>Editeur client</title>
 </head>
 <body>
-
+<h1>Page Edition Client</h1>
 </body>
 </html>

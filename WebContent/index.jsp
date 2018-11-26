@@ -48,14 +48,14 @@
 
 	<!-- Affichage des clients -->
 	<section class="" id="clients-display">
-	<c:forEach var="client" items="${clients }">
+	<c:forEach var="client" items="${clients}">
 		<div class="client-container">
 			<div class="client-contain">
 				<span> ${client.firstname} </span> <span> ${client.lastname}</span> <span> ${client.email} </span> <span>
 					${client.address} </span>
 				<div>
 					<div>
-						<a href="vers Edition">
+						<a href="modify.html?id=${client.id}">
 							<button>Editer</button>
 						</a>
 					</div>

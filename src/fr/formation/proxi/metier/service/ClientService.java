@@ -27,18 +27,28 @@ public class ClientService {
 		return this.daoClient.readAll();
 	}
 
-	public void transfer(Float value, Account compteDebite, Account compteCredite) {
-
-		Account compteDebiteActualise = new Account(compteDebite.getId(), compteDebite.getNumber(),
-				(compteDebite.getBalance() - value), compteDebite.isSavings());
-		Account compteCrediteActualise = new Account(compteDebite.getId(), compteDebite.getNumber(),
-				(compteDebite.getBalance() + value), compteDebite.isSavings());
+	public boolean transfer(Float value, Account compteDebite, Account compteCredite) {
+		boolean transferOK = true;
+		if (compteDebite.getId() == compteCredite.getId()) {
+			return transferOK;
+		}
 		
-		this.daoAccount.update(compteDebiteActualise);
+		else if (compteDebite.getBalance() - value < 0) {
+			transferOK = false;
+			return transferOK;
+			
+		} else {
+
+		Account compteCrediteActualise = new Account(compteCredite.getId(), compteCredite.getNumber(),
+				(compteCredite.getBalance() + value), compteCredite.isSavings());
 		this.daoAccount.update(compteCrediteActualise);
 		
+		Account compteDebiteActualise = new Account(compteDebite.getId(), compteDebite.getNumber(),
+				(compteDebite.getBalance() - value), compteDebite.isSavings());
+		this.daoAccount.update(compteDebiteActualise);
 	
-
+		return transferOK;
+		}
 	}
 
 }

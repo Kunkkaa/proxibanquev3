@@ -24,4 +24,10 @@ public class AccountService {
 
 	}
 
+	public AccountDao getDao() {
+		return this.dao;
+	}
+	
+	
+
 }

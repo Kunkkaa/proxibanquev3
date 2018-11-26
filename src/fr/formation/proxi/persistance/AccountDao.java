@@ -19,6 +19,26 @@ public class AccountDao implements Dao<Account> {
 	@Override
 	public Account read(Integer id) {
 		Account account = null;
+		
+		try {
+			Statement st = this.mySqlConn.getConn().createStatement();
+			ResultSet rs = st.executeQuery(String.format(SqlQueries.SELECT_ACCOUNT_BY_ID_ACCOUNT, id));
+			while (rs.next()) {
+				Integer idAcc = rs.getInt("id");
+				String number = rs.getString("number");
+				Float balance = rs.getFloat("balance");
+				String savingsString = rs.getString("savings");
+				Boolean savings = false;
+				if (savingsString.equals("1")) {
+					savings = true;
+				}
+				account = new Account(idAcc, number, balance, savings);
+	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 		return account;
 	}

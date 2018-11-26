@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.service.AccountService;
+import fr.formation.proxi.metier.service.ClientService;
 
 public class TransferServlet extends HttpServlet {
 
@@ -32,7 +33,19 @@ public class TransferServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("DoPost OK !");
-	
+		Integer compteCredite = Integer.parseInt(req.getParameter("compteACrediter"));
+		Integer compteDebite = Integer.parseInt(req.getParameter("compteADebiter"));
+		Float val = Float.parseFloat(req.getParameter("value"));
+		Account CompteACrediter = this.accS.getDao().read(compteCredite);
+		Account CompteADebiter = this.accS.getDao().read(compteDebite);
+		
+		Boolean transferOK = ClientService.getInstance().transfer(val, CompteADebiter, CompteACrediter);
+
+		if (!transferOK) {
+			req.setAttribute("transferRate", transferOK);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer.jsp").forward(req, resp);
+		} else {
+		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
+		}
 	}
 }
