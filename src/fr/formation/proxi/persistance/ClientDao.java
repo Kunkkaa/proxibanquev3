@@ -8,7 +8,14 @@ import java.util.List;
 
 import fr.formation.proxi.metier.entity.Client;
 
-public class ClientDao implements Dao<Client>{
+/**
+ * Classe regroupant les traitements à effectuer sur les clients. Respecte le
+ * design pattern singleton.
+ * 
+ * @author Adminl
+ *
+ */
+public class ClientDao implements Dao<Client> {
 
 	private MySqlConnection mySqlConn;
 
@@ -16,8 +23,13 @@ public class ClientDao implements Dao<Client>{
 		this.mySqlConn = MySqlConnection.getInstance();
 	}
 
+	/**
+	 * Permet de récupérer les informations d'un client à partir de son id.
+	 * 
+	 */
+	@Override
 	public Client read(Integer id) {
-		
+
 		Client client = null;
 
 		try {
@@ -40,6 +52,11 @@ public class ClientDao implements Dao<Client>{
 		return client;
 	}
 
+	/**
+	 * Récupère l'ensemble des clients enregistrés dans la Base De Données.
+	 * 
+	 */
+	@Override
 	public List<Client> readAll() {
 		List<Client> clients = new ArrayList<>();
 		try {
@@ -62,21 +79,23 @@ public class ClientDao implements Dao<Client>{
 		return clients;
 	}
 
+	/**
+	 * Met à jour les informations d'un client spécifique. Gère la modification du
+	 * nom, du prénom, de l'email et de l'adresse du client.
+	 * 
+	 */
+	@Override
 	public Client update(Client entity) {
 
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
-			st.executeUpdate(String.format(
-					SqlQueries.UPDATE_CLIENT, entity.getLastname(), entity.getFirstname(), entity.getEmail(), entity.getAddress(), entity.getId()));
-			
-			
+			st.executeUpdate(String.format(SqlQueries.UPDATE_CLIENT, entity.getLastname(), entity.getFirstname(),
+					entity.getEmail(), entity.getAddress(), entity.getId()));
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return entity; 
-		
-		
+		return entity;
 	}
 
 }
