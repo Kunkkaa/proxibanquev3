@@ -2,7 +2,7 @@ package fr.formation.proxi.presentation;
 
 import javax.servlet.http.HttpServlet;
 
-public class IndexServlet extends HttpServlet{
+public class AccountServlet extends HttpServlet {
 
 	/**
 	 * 
