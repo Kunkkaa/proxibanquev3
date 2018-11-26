@@ -27,36 +27,6 @@
 	
 	<body id="page-top">
 
-	    <!-- Navigation -->
-	    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-	      <div class="container">
-	        <a class="navbar-brand js-scroll-trigger" href="#page-top">Proxibanque SI</a>
-	        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-	          Menu
-	          <i class="fas fa-bars"></i>
-	        </button>
-	        <div class="collapse navbar-collapse" id="navbarResponsive">
-	          <ul class="navbar-nav text-uppercase ml-auto">
-	            <li class="nav-item">
-	              <a class="nav-link js-scroll-trigger" href="#services">Agence et Conseiller</a>
-	            </li>
-	            <li class="nav-item">
-	              <a class="nav-link js-scroll-trigger" href="#portfolio">Service Client</a>
-	            </li>
-	            <li class="nav-item">
-	              <a class="nav-link js-scroll-trigger" href="#about">FAQ</a>
-	            </li>
-	            <li class="nav-item">
-	              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-	            </li>
-	            <li class="nav-item">
-	              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-	            </li>
-	          </ul>
-	        </div>
-	      </div>
-	    </nav>
-	
 	    <!-- Header -->
 	    <header class="masthead">
 	      <div class="container">
@@ -66,7 +36,35 @@
 	        </div>
 	      </div>
 	    </header>
-	
+	    
+	    <!-- Affichage des clients -->
+	    <section class = "" id ="clients-display">	
+	    	<div class = "client-container">
+				<div class="client-contain">
+					<span> Nom1 </span>
+					<span> prénom 1</span>
+					<span> email </span>
+					<span> adresse </span>
+					<div>
+						<div>
+							<a href="vers Edition">
+								<button> Editer </button>
+							</a>
+						</div>					
+						<div>
+							<a href="vers Comptes">
+								<button> Comptes </button>
+							</a>
+						</div>								
+						<div>
+							<a href="vers Virement">
+								<button> Virement </button>
+							</a>
+						</div>								
+					</div>
+				</div>	    	
+	    	</div>
+		</section>
 	    <!-- Team -->
 	    <section class="bg-light" id="team">
 	      <div class="container">
