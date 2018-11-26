@@ -65,7 +65,7 @@
 						</a>
 					</div>
 					<div>
-						<a href="/views/transfer.html?id=${client.id}">
+						<a href="transfer.html?id=${client.id}">
 							<button>Virement</button>
 						</a>
 					</div>
