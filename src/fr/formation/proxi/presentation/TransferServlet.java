@@ -12,6 +12,14 @@ import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.service.AccountService;
 import fr.formation.proxi.metier.service.ClientService;
 
+/**
+ * Classe permettant d'accéder transfer.jsp et de gérer les transferts d'argent entre les comptes d'un client.
+ * 
+ * @author Adminl
+ *
+ */
+
+
 public class TransferServlet extends HttpServlet {
 
 	/**
@@ -22,6 +30,12 @@ public class TransferServlet extends HttpServlet {
 	
 	
 	
+	/**
+	 * Méthode permettant d'accéder à la page de transfer.
+	 *  Récupère l'id de client de la requête pour agir sur ses comptes spécifiquement.
+	 *  Renvoie en attribut une liste des comptes dudit client .
+	 *  Si le client possède 1 compte ou moins, l'utilisateur est transféré sur une page d'erreur. 
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -35,6 +49,11 @@ public class TransferServlet extends HttpServlet {
 		}
 	}
 	
+	/**
+	 * Méthode permettant de traiter un formulaire rempli sur transfer.jsp. 
+	 * Renvoie les informations des comptes utilisés pour le transfert et le montant du transfert choisit par l'utilisateur. 
+	 * Si le transfer échoue dans la méthode transfer() de ClientService, renvoie sur une page d'erreur. 
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer compteCredite = Integer.parseInt(req.getParameter("compteACrediter"));

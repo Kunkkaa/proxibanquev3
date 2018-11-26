@@ -1,5 +1,12 @@
 package fr.formation.proxi.persistance;
 
+
+/**
+ * Classe contenant sous forme de constantes l'ensemble des requêtes nécessaires aux manipulations de la base de données.
+ * 
+ * @author Adminl
+ *
+ */
 public class SqlQueries {
 	
 	public static final String SELECT_ALL_CLIENTS = "SELECT * FROM client";
