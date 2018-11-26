@@ -16,10 +16,17 @@ private AccountDao dao = new AccountDao();
 		return AccountService.INSTANCE;
 	}
 
+<<<<<<< HEAD
 	public List<Account> getAll(Integer idClient){
 		List<Account>  accounts = this.dao.readAllAccountsForOneClient(idClient);
 		
 		return accounts;
 		
 	}
+=======
+	
+	
+	
+	
+>>>>>>> 636200fa345d3f4077ecfaf2ee6086c4051197b7
 }
