@@ -27,8 +27,12 @@ public class TransferServlet extends HttpServlet {
 		
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		List<Account> accounts = this.accS.getAll(id);
+		if (accounts.size() <= 1) {
+			req.getServletContext().getRequestDispatcher("/WEB-INF/views/error_transfer.jsp").forward(req, resp);
+		} else {
 		req.setAttribute("accounts", accounts);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer.jsp").forward(req, resp);
+		}
 	}
 	
 	@Override
