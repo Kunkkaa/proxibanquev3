@@ -10,24 +10,26 @@ import fr.formation.proxi.metier.entity.Client;
 
 public class ClientDao implements Dao<Client>{
 
-	private MySqlConnection conn;
+	private MySqlConnection mySqlConn;
 
 	public ClientDao() {
-		this.conn = MySqlConnection.getInstance();
+		this.mySqlConn = MySqlConnection.getInstance();
 	}
 
 	public Client read(Integer id) {
 		Client client = null;
 
 		try {
-			Statement st = this.conn.getConn().createStatement();
+			Statement st = this.mySqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(String.format(SqlQueries.SELECT_CLIENT_BY_ID, id));
 			while (rs.next()) {
+				Integer idcli = rs.getInt("id");
 				String firstname = rs.getString("firstname");
 				String lastname = rs.getString("lastname");
 				String email = rs.getString("email");
 				String address = rs.getString("address");
 				client = new Client(firstname, lastname, email, address);
+				client.setId(idcli);
 			}
 
 		} catch (SQLException e) {
@@ -40,14 +42,16 @@ public class ClientDao implements Dao<Client>{
 	public List<Client> readAll() {
 		List<Client> clients = new ArrayList<>();
 		try {
-			Statement st = this.conn.getConn().createStatement();
+			Statement st = this.mySqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(SqlQueries.SELECT_ALL_CLIENTS);
 			while (rs.next()) {
+				Integer idcli = rs.getInt("id");
 				String firstname = rs.getString("firstname");
 				String lastname = rs.getString("lastname");
 				String email = rs.getString("email");
 				String address = rs.getString("address");
 				Client client = new Client(firstname, lastname, email, address);
+				client.setId(idcli);
 				clients.add(client);
 			}
 		} catch (SQLException e) {
