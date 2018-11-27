@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Outil de virement</title>
+<title>Outil d'édition</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,14 +41,14 @@
 				<div class="label-container">
 					<label for="lastname">Nouveau Nom</label> 
 					<label for="firstname">Nouveau Prénom</label> 
-					<label for="email">Nouveau Mél</label> 
+					<label for="email">Nouvel Email</label> 
 					<label for="address">Nouvelle Adresse</label> 
 				</div>
 				<div class="input-container">
-					<input type="text" id="lastname" value="${client.lastname}" name="lastname">
-					<input type="text" id="firstname" value="${client.firstname}" name="firstname">
-					<input type="email" id="email" value="${client.email}" name="email"> 
-					<input type="text" id="address" value="${client.address}" name="address">
+					<input type="text" id="lastname" value="${client.lastname}" name="lastname" maxlength="45">
+					<input type="text" id="firstname" value="${client.firstname}" name="firstname" maxlength="45">
+					<input type="email" id="email" value="${client.email}" name="email" maxlength="45"> 
+					<input type="text" id="address" value="${client.address}" name="address" maxlength="45">
 				</div> 
 				
 			</div>
