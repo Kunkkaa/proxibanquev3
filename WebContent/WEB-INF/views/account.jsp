@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +48,10 @@
 			<div class="account-list">
 				<div class="left-list">
 				<h2>Liste des comptes courant </h2>
+				<c:if test="${empty currentAccounts}">
+				<h4> Aucun compte associé à ce client.</h4>
+				</c:if>
+				<c:if test="${not empty currentAccounts}">
 					<table>
 					<tr>
 						<th> Numero de compte </th>
@@ -60,9 +64,14 @@
 						</tr>
 					</c:forEach>
 					</table>
+					</c:if>
 				</div>
 				<div class="right-list">
 					<h2>Liste des comptes epargne</h2>
+					<c:if test="${empty savingAccounts}">
+					<h4> Aucun compte associé à ce client.</h4>
+					</c:if>
+					<c:if test="${not empty savingAccounts}">
 					<table>
 					<tr>
 						<th> Numero de compte </th>
@@ -75,6 +84,7 @@
 							</tr>
 						</c:forEach>
 					</table>
+					</c:if>
 				</div>
 			</div>
 			<div class="footer-button">

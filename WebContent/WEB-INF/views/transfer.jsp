@@ -47,34 +47,42 @@
 	<h1 class="page-title">Transfert pour ${client.firstname} ${client.lastname }</h1>
 		<div class="transfer-container">
 			<form method="post" action="">
-				<div class="lists-container">
-					<div class="debit-list">
-						<fieldset>
-							<legend> Compte à débiter </legend>
+			
+				<div class ="death-table-cont">
+					<div class="death-table-left">
+						<table>
+							<tr>
+								<th> Numéro de compte </th>
+								<th class="balance"> Solde en &#8364 </th>
+							</tr>
 							<c:forEach var="account" items="${accounts}">
-								<div>
-									<input id="compteADebiter" type="radio" name="compteADebiter"
-										value="${account.id}"> <label for="compteADebiter">Compte
-										n°${account.number} ------------ Solde :
-										${account.balance}&#8364</label>
-								</div>
+								<tr>
+									<td>
+										<input type="radio" id="compteADebiter" name="compteADebiter" value="${account.id}">
+										<label for="compteADebiter">n°${account.number}</label>
+									</td>
+									<td>${account.balance}</td>
 							</c:forEach>
-						</fieldset>
+						</table>
 					</div>
-					<div class="credit-list">
-						<fieldset>
-							<legend> Compte à créditer </legend>
+					<div class="death-table-right">
+						<table>
+							<tr>
+								<th> Numéro de compte </th>
+								<th class="balance"> Solde en &#8364 </th>
+							</tr>
 							<c:forEach var="account" items="${accounts}">
-								<div>
-									<input id="compteACrediter" type="radio" name="compteACrediter"
-										value="${account.id}"> <label for="compteACrediter">Compte
-										: n°${account.number} ------------ Solde :
-										${account.balance}&#8364</label>
-								</div>
+								<tr>
+									<td>
+										<input type="radio" id="compteACrediter" name="compteACrediter" value="${account.id}">
+										<label for="compteACrediter">n°${account.number}</label>
+									</td>
+									<td>${account.balance}</td>
 							</c:forEach>
-						</fieldset>
+						</table>
 					</div>
 				</div>
+				
 				<label for="value"> Montant du virement</label> <input
 					type="number" name="value" id="value">
 				<button>Confirmer</button>

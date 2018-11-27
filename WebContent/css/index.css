@@ -108,15 +108,20 @@ tr {
 	width: 250px;
 }
 
+h4 {
+	margin-top: 1em;
+}
+
 /* style pour transfer.jsp */
 .transfer-container {
 	width: 100vw;
 }
 
-.lists-container {
+.death-table-cont {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	margin-top: 4.5em;
 }
 
 /* style pour editor.jsp */
@@ -160,7 +165,6 @@ tr {
 	width: 100%;
 	position:relative;
 	margin-top: 2em;
-	
 }
 
 

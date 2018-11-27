@@ -34,8 +34,7 @@
 </head>
 <body>
 	<section class="head"></section>
-	<h1 class="page-title">Modification des informations de ${client.firstname}
-		${client.lastname}</h1>
+	<h1 class="page-title">Modification des informations de ${client.firstname} ${client.lastname}</h1>
 	<div class="form-cont">
 		<form method="post" action="modify.html?id=${client.id}">
 			<div class="edit-form">
@@ -56,6 +55,9 @@
 		<div class="buttons">
 			<button>Valider</button>
 			<button type="reset">Réinitialiser</button>
+			<a href="index.html">
+				<button>Retour à l'accueil</button>
+			</a>
 		</div>
 		</form>
 		</div>
