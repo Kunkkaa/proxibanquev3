@@ -12,7 +12,7 @@ import fr.formation.proxi.metier.service.ClientService;
 
 
 /**
- * Classe permettant d'accéder, d'envoyer des informations et de récupérer des informations liées à l'édition d'un client.
+ * Classe permettant d'acceder, d'envoyer des informations et de recuperer des informations liees à l'edition d'un client.
  *  * @author Adminl
  *
  */
@@ -24,8 +24,8 @@ public class EditorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Méthode permettant d'accéder à editor.jsp.
-	 * Récupère l'id du client dans la requête, et renvoie en attribut dans la réponse un objet client obtenu par la fonction read de client service.
+	 * Methode permettant d'acceder a� editor.jsp.
+	 * Recupere l'id du client dans la requete, et renvoie en attribut dans la reponse un objet client obtenu par la fonction read de client service.
 	 * 
 	 */
 	@Override
@@ -37,9 +37,9 @@ public class EditorServlet extends HttpServlet {
 	}
 
 	/**
-	 * Méthode permettant de récupérer les résultats d'un formulaire sur editor.jsp.
-	 * Récupère les différents éléments entrés dans le formulaire pour la modification du client. 
-	 * Créée une nouvelle instance de client avec les éléments récupérés et l'envoie à la classe ClientService pour modifier les informations dans la base de données. 
+	 * Methode permettant de recuperer les resultats d'un formulaire sur editor.jsp.
+	 * Recupère les differents elements entres dans le formulaire pour la modification du client. 
+	 * Cree une nouvelle instance de client avec les elements recuperes et l'envoie a� la classe ClientService pour modifier les informations dans la base de donnees. 
 	 * Redirige l'utilisateur sur la page d'accueil.
 	 */
 	@Override

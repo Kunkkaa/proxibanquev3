@@ -28,7 +28,7 @@ public class AccountService {
 	}
 
 	/**
-	 * Recupère la liste des comptes associés à un client.
+	 * Recupère la liste de tous les comptes associés à un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes.
 	 * @return La liste des comptes du client.
@@ -46,7 +46,7 @@ public class AccountService {
 	 * Recupère la liste des comptes épargne d'un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes épargne.
-	 * @return La liste des comptes épargne.
+	 * @return La liste des comptes épargne du client.
 	 */
 	public List<Account> getAllSavingAccounts(Integer idClient) {
 		List<Account> SavingAccounts = new ArrayList<>();
@@ -66,7 +66,7 @@ public class AccountService {
 	 * Recupère la liste des comptes courant d'un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes courant.
-	 * @return La liste des comptes courant.
+	 * @return La liste des comptes courant du client.
 	 */
 	public List<Account> getAllCurrentAccounts(Integer idClient) {
 		List<Account> CurrentAccounts = new ArrayList<>();

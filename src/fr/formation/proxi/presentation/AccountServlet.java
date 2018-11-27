@@ -14,21 +14,19 @@ import fr.formation.proxi.metier.service.AccountService;
 import fr.formation.proxi.metier.service.ClientService;
 
 /**
- * Classe permettant d'accéder, d'envoyer des informations et de gérer le listing des comptes d'un client.
+ * Classe permettant d'acceder, d'envoyer des informations et de gerer le listing des comptes d'un client.
  *  * @author Adminl
  *
  */
 public class AccountServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	
 	/**
-	 * Méthode permettant d'accéder à account.jsp. 
-	 * Récupère l'id du client dans la requête, et renvoie en attribut un liste de compte courant et une liste de compte épargne, toutes deux liées au-dit client. 
+	 * Methode permettant d'acceder a� account.jsp. 
+	 * Recupere l'id du client dans la requete, et renvoie en attribut une liste de comptes courant et une liste de comptes epargne, toutes deux liees au-dit client. 
 	 * Renvoie en attribut l'id client.
 	 */
 	@Override

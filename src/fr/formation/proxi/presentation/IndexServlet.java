@@ -25,9 +25,9 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Méthode permettant d'accéder à index.jsp.
-	 * Récupère et renvoie en attribut une liste des clients issus de ClientService. 
-	 * Cette liste sera affichée dans index.jsp. 
+	 * Methode permettant d'acceder a� index.jsp.
+	 * Recupere et renvoie en attribut une liste des clients issus de ClientService. 
+	 * Cette liste sera affichee dans index.jsp. 
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

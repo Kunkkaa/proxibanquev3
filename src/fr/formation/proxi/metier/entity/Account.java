@@ -16,12 +16,12 @@ public class Account {
 	private String number;
 
 	/**
-	 * Stockage du solde actuel de ce compte en €.
+	 * Stockage du solde actuel de ce compte en euros.
 	 */
 	private Float balance;
 
 	/**
-	 * Si vrai, c'est un compte épargne, sinon c'est un compte courant.
+	 * Si vrai, c'est un compte epargne, sinon c'est un compte courant.
 	 */
 	private boolean savings;
 

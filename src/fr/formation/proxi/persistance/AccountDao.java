@@ -25,7 +25,7 @@ public class AccountDao implements Dao<Account> {
 	
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Récupère un compte en particulier à partir de son id.
+	 * <br><br>Recupere un compte en particulier à partir de son id.
 	 */
 	@Override
 	public Account read(Integer id) {
@@ -52,7 +52,7 @@ public class AccountDao implements Dao<Account> {
 	}
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Récupère l'ensemble des comptes enregistrés. Pas encore implémentée car non utilisée par l'application actuellement.
+	 * <br><br>Recupere l'ensemble des comptes enregistres. Pas encore implementee car non utilisee par l'application actuellement.
 	 */
 	@Override
 	public List<Account> readAll() {
@@ -61,9 +61,9 @@ public class AccountDao implements Dao<Account> {
 	
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Recupere l'ensemble des comptes d'un unique client par son id.
+	 * <br><br>Recupere l'ensemble des comptes, epargne et courant, d'un unique client par son id.
 	 * 
-	 * @param idClient Le client d'intérêt.
+	 * @param idClient Le client d'interet.
 	 * @return La liste des comptes du client.
 	 */
 	public List<Account> readAllAccountsForOneClient(Integer idClient) {
@@ -91,7 +91,7 @@ public class AccountDao implements Dao<Account> {
 	
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Met à jour les informations d'un compte.
+	 * <br><br>Met à jour le solde d'un compte.
 	 */
 	@Override
 	public Account update(Account entity) {

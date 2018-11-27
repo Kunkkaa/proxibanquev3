@@ -2,7 +2,7 @@ package fr.formation.proxi.persistance;
 
 
 /**
- * Classe contenant sous forme de constantes l'ensemble des requêtes nécessaires aux manipulations de la base de données.
+ * Classe contenant sous forme de constantes l'ensemble des requetes necessaires aux manipulations de la base de donnees.
  * 
  * @author Adminl
  *

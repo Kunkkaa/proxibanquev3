@@ -3,34 +3,34 @@ package fr.formation.proxi.persistance;
 import java.util.List;
 
 /**
- * Définition d'une interface comportant les 4 méthodes élémentaires de
- * manipulation de données CRUD + readALL.
+ * Definition d'une interface comportant les 4 méthodes elementaires de
+ * manipulation de donnees CRUD + readALL.
  * 
- * @param <T> classe qui représente le type de données manipulé par le DAO.
+ * @param <T> classe qui represente le type de donnees manipule par le DAO.
  */
 public interface Dao<T> {
 
 	/**
-	 * Lit lesinformations d'une entité de BDD
+	 * Lit les informations d'une entite de BDD
 	 * 
-	 * @param id l'identifiant d'une entité en base de données
-	 * @return T l'entité construite à partir des informations récupérées
+	 * @param id l'identifiant d'une entite en base de donnees
+	 * @return T l'entité construite à partir des informations recuperees
 	 * 
 	 */
 	public T read(Integer id);
 
 	/**
-	 * Récupère toutes les entités (lignes) d'une table
+	 * Recupere toutes les entités (lignes) d'une table
 	 * 
-	 * @return List<T> la liste de toutes les entités lues.
+	 * @return List<T> la liste de toutes les entites lues.
 	 */
 	public List<T> readAll();
 
 	/**
-	 * met à jour l'entité donné dans la BDD
+	 * met à jour l'entite donne dans la BDD
 	 * 
-	 * @param entity l'entité à mettre à jour avec les nouvelles informations
-	 * @return l'entité mise à jour
+	 * @param entity l'entite à mettre a jour avec les nouvelles informations
+	 * @return l'entite mise à jour
 	 */
 	public T update(T entity);
 

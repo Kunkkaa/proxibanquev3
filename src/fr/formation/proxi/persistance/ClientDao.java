@@ -25,7 +25,7 @@ public class ClientDao implements Dao<Client> {
 
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Permet de récupérer les informations d'un client à partir de son id.
+	 * <br><br>Permet de recuperer les informations d'un client a partir de son id.
 	 */
 	@Override
 	public Client read(Integer id) {
@@ -54,7 +54,7 @@ public class ClientDao implements Dao<Client> {
 
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Permet de récupérer l'ensemble des clients du conseiller.
+	 * <br><br>Permet de recuperer l'ensemble des clients du conseiller.
 	 */
 	@Override
 	public List<Client> readAll() {
@@ -80,8 +80,8 @@ public class ClientDao implements Dao<Client> {
 	}
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Met à jour les informations d'un client spécifique. Gère la modification du
-	 * nom, du prénom, de l'email et de l'adresse du client.
+	 * <br><br>Met a jour les informations d'un client specifique. Gere la modification du
+	 * nom, du prenom, de l'email et de l'adresse du client.
 	 */
 	@Override
 	public Client update(Client entity) {

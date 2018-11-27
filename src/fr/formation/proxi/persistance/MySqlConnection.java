@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Classe permettant de se lier à la base de données MySQL. 
+ * Classe permettant de se lier a� la base de donnees MySQL. 
  * Cette classe est un singleton.
  * @author Adminl
  *
@@ -23,8 +23,8 @@ public class MySqlConnection {
 	private boolean isConnected;
 
 	/**
-	 * Méthode qui permet de récupérer la connection établie par la classe.
-	 * Ne prend pas de paramètres.
+	 * Methode qui permet de recuperer la connection etablie par la classe.
+	 * Ne prend pas de parametres.
 	 * @return La connection à la BDD MySQL.
 	 */
 	public Connection getConn() {
@@ -32,7 +32,7 @@ public class MySqlConnection {
 	}
 
 	/**
-	 * Constructeur de classe qui permet la connexion à la base de données. 
+	 * Constructeur de classe qui permet la connexion a� la base de donnees. 
 	 */
 	public MySqlConnection() {
 		this.isConnected = true;

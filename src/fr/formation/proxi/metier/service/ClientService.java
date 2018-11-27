@@ -80,12 +80,11 @@ public class ClientService {
 	 * @return Le client.
 	 */
 	public Client read(Integer id) {
-
 		return this.daoClient.read(id);
 	}
 
 	/**
-	 * Permet de mettre à jour les informations d'un client. cette méthode gère la
+	 * Permet de mettre à jour les informations d'un client. Cette méthode gère la
 	 * modification du nom, du prénom, du mail et de l'adresse du client.
 	 * 
 	 * @param client L'id du client à actualiser.
