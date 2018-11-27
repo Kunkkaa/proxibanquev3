@@ -1,6 +1,7 @@
 package fr.formation.proxi.presentation;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +13,15 @@ import fr.formation.proxi.metier.service.ClientService;
 
 
 /**
- * Classe permettant d'acceder, d'envoyer des informations et de recuperer des informations liees Ã  l'edition d'un client.
+ * Classe permettant d'acceder à la page d'edition des informations d'un client.
  *  * @author Adminl
  *
  */
 public class EditorServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
+	private Logger logger = Logger.getLogger(EditorServlet.class.getName());
 	
 	/**
 	 * Methode permettant d'acceder a  editor.jsp.
@@ -38,7 +38,7 @@ public class EditorServlet extends HttpServlet {
 
 	/**
 	 * Methode permettant de recuperer les resultats d'un formulaire sur editor.jsp.
-	 * RecupÃ¨re les differents elements entres dans le formulaire pour la modification du client. 
+	 * Recupere les differents elements entres dans le formulaire pour la modification du client. 
 	 * Cree une nouvelle instance de client avec les elements recuperes et l'envoie a  la classe ClientService pour modifier les informations dans la base de donnees. 
 	 * Redirige l'utilisateur sur la page d'accueil.
 	 */
@@ -51,8 +51,9 @@ public class EditorServlet extends HttpServlet {
 		String address = req.getParameter("address");
 		
 		Client client = new Client(id, firstname, lastname, email, address);
-		
 		ClientService.getInstance().update(client);
+		logger.info("Mise à jour du client réussie !");
+		
 		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 		
 	}

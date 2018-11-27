@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import fr.formation.proxi.metier.entity.Account;
 
@@ -99,6 +100,7 @@ public class AccountDao implements Dao<Account> {
 			Statement st = this.mySqlConn.getConn().createStatement();
 			st.executeUpdate(
 					String.format(SqlQueries.UPDATE_ACCOUNT_BALANCE_BY_ID, entity.getBalance(), entity.getId()));
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

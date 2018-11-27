@@ -2,6 +2,7 @@ package fr.formation.proxi.presentation;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +29,7 @@ public class TransferServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	private AccountService accS = AccountService.getInstance();
+	private Logger logger = Logger.getLogger(TransferServlet.class.getName());
 
 	/**
 	 * Methode permettant d'acceder a  la page de transfer. Recupere l'id dy
@@ -42,9 +44,11 @@ public class TransferServlet extends HttpServlet {
 		Client client = ClientService.getInstance().read(id);
 		List<Account> accounts = this.accS.getAll(id);
 		if (accounts.size() <= 1) {
+			logger.info("Chargement d'un client avec moins de 2 comptes. Abandon de la tentative de virement.");
 			req.setAttribute("client", client);
 			req.getServletContext().getRequestDispatcher("/WEB-INF/views/error_transfer.jsp").forward(req, resp);
 		} else {
+			logger.info("Comptes du client chargés.");
 			req.setAttribute("accounts", accounts);
 			req.setAttribute("client", client);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer.jsp").forward(req, resp);
@@ -69,8 +73,10 @@ public class TransferServlet extends HttpServlet {
 
 		if (!transferOK) {
 			req.setAttribute("transferRate", transferOK);
+			logger.info("Erreur lors de la procedure de transfert monetaire.");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer.jsp").forward(req, resp);
 		} else {
+			logger.info("Transfert bancaire réussi. Redirection vers la page d'accueil.");
 			resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 		}
 	}
