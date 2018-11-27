@@ -72,7 +72,7 @@ public class TransferServlet extends HttpServlet {
 			req.setAttribute("transferRate", transferOK);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer.jsp").forward(req, resp);
 		} else {
-			resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
+			this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer_OK.jsp").forward(req, resp);
 		}
 	}
 }

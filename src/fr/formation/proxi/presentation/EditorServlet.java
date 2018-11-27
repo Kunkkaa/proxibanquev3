@@ -52,7 +52,7 @@ public class EditorServlet extends HttpServlet {
 		Client client = new Client(id, firstname, lastname, email, address);
 		ClientService.getInstance().update(client);
 		
-		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/edit_OK.jsp").forward(req, resp);
 		
 	}
 }
