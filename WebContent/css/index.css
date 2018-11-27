@@ -118,3 +118,50 @@ tr {
 	flex-direction: row;
 	justify-content: space-around;
 }
+
+/* style pour editor.jsp */
+
+.edit-form {
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+.form-cont {
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	width:100vw;
+	align-items:center;
+
+}
+.input-container > input {
+	margin-top: ;
+	margin-left: 3em;
+}
+
+.edit-form > div {
+	display:flex;
+	flex-direction:column;
+		
+}
+.edit-form > div > input {
+	margin-bottom:1em;
+	margin-left: 5em;
+	color: grey;
+}
+.edit-form > div > label {
+
+	margin-bottom:1.5em;
+}
+.buttons{
+	display:flex;
+	justify-content:space-around;
+	flex-direction:row;
+	width: 100%;
+	position:relative;
+	margin-top: 2em;
+	
+}
+
+
+
