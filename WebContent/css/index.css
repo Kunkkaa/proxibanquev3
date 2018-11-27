@@ -1,0 +1,43 @@
+header.masthead {
+	background-image: url(../img/header-bg.jpg);
+}
+
+.client-display {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.client-container {
+	box-shadow : 0.3em 0.3em 3em lightgrey;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	padding-right: 0.8em;
+	padding-left: 0.8em;
+	margin: .5em;
+	border-radius : 5px;
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+	margin-top: 0.5em;
+}
+
+.button {
+	margin-top: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-right: 1em;
+}
+
+#clients-display {
+	width: 100vw;
+}
+.name {
+	font-family : MontSerrat;
+	text-align : center;
+	margin-bottom : 2em;
+	font-size : 1.5em;
+}

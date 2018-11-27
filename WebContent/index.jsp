@@ -30,6 +30,7 @@
 
 <!-- Custom styles for this template -->
 <link href="css/agency.min.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 
 </head>
 
@@ -48,31 +49,34 @@
 
 	<!-- Affichage des clients -->
 	<section class="" id="clients-display">
-	<c:forEach var="client" items="${clients}">
-		<div class="client-container">
-			<div class="client-contain">
-				<span> ${client.firstname} </span> <span> ${client.lastname}</span> <span> ${client.email} </span> <span>
-					${client.address} </span>
-				<div>
-					<div>
-						<a href="modify.html?id=${client.id}">
-							<button>Editer</button>
-						</a>
-					</div>
-					<div>
-						<a href="account.html?id=${client.id}">
-							<button>Comptes</button>
-						</a>
-					</div>
-					<div>
-						<a href="transfer.html?id=${client.id}">
-							<button>Virement</button>
-						</a>
-					</div>
+	<div class="client-display">
+		<c:forEach var="client" items="${clients}">
+			<div class="client-container">
+				<div class="client-contain">
+					<p class="name"> ${client.firstname} ${client.lastname}</p> 
+					<p> ${client.email} </p> 
+					<p> ${client.address} </p>
+						<div class="button-container">
+							<div>
+								<a href="modify.html?id=${client.id}">
+									<button class = "button">Editer</button>
+								</a>
+							</div>
+							<div>
+								<a href="account.html?id=${client.id}">
+									<button class = "button">Comptes</button>
+								</a>
+							</div>
+							<div>
+								<a href="transfer.html?id=${client.id}">
+									<button class = "button">Virement</button>
+								</a>
+							</div>
+						</div>
 				</div>
 			</div>
+			</c:forEach>
 		</div>
-		</c:forEach>
 	</section>
 	<!-- Team -->
 	<section class="bg-light" id="team">
