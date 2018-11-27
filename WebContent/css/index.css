@@ -4,7 +4,6 @@ header.masthead {
 	height: 45vh;
 }
 
-
 .client-display {
 	display: flex;
 	flex-direction: row;
@@ -37,7 +36,7 @@ header.masthead {
 
 #clients-display {
 	width: 100vw;
-		padding-top:50px;
+	padding-top: 50px;
 }
 
 .name {
@@ -107,4 +106,15 @@ tr {
 .footer-button {
 	margin: 3em auto;
 	width: 250px;
+}
+
+/* style pour transfer.jsp */
+.transfer-container {
+	width: 100vw;
+}
+
+.lists-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
