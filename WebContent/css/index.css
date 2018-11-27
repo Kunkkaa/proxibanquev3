@@ -112,16 +112,25 @@ h4 {
 	margin-top: 1em;
 }
 
+.left-list{
+	width: 30%
+}
+
+.right-list{
+	width: 30%
+}
+
 /* style pour transfer.jsp */
 .transfer-container {
 	width: 100vw;
 }
 
-.death-table-cont {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	margin-top: 4.5em;
+.centered-input{
+	 display:flex;
+	flex-direction:row;
+	justify-content:center;
+	margin-left : 2em;
+	margin-top : 4em; 
 }
 
 /* style pour editor.jsp */

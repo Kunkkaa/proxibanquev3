@@ -34,65 +34,70 @@
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-	<c:if test="${not empty transferRate}">
-		<h1>Erreur. Le compte a debiter aura un solde negatif avec le
-			montant renseigné</h1>
-		<a href="index.html">
-			<button>J'approuve mon idiotie et m'en vais</button>
-		</a>
-	</c:if>
 	<section class="head"></section>
-
-	<c:if test="${fn:length(accounts) > 1}">
-	<h1 class="page-title">Transfert pour ${client.firstname} ${client.lastname }</h1>
-		<div class="transfer-container">
-			<form method="post" action="">
-			
-				<div class ="death-table-cont">
-					<div class="death-table-left">
-						<table>
-							<tr>
-								<th> Numéro de compte </th>
-								<th class="balance"> Solde en &#8364 </th>
-							</tr>
-							<c:forEach var="account" items="${accounts}">
-								<tr>
-									<td>
-										<input type="radio" id="compteADebiter" name="compteADebiter" value="${account.id}">
-										<label for="compteADebiter">n°${account.number}</label>
-									</td>
-									<td>${account.balance}</td>
-							</c:forEach>
-						</table>
-					</div>
-					<div class="death-table-right">
-						<table>
-							<tr>
-								<th> Numéro de compte </th>
-								<th class="balance"> Solde en &#8364 </th>
-							</tr>
-							<c:forEach var="account" items="${accounts}">
-								<tr>
-									<td>
-										<input type="radio" id="compteACrediter" name="compteACrediter" value="${account.id}">
-										<label for="compteACrediter">n°${account.number}</label>
-									</td>
-									<td>${account.balance}</td>
-							</c:forEach>
-						</table>
-					</div>
-				</div>
+	
+	<section class="account-body">
+		<c:if test="${not empty transferRate}">
+			<h1 class="page-title">FATAL ERROR : Le compte à debiter aura un solde negatif avec le
+				montant renseigné</h1>
+		</c:if>
+	
+		<c:if test="${fn:length(accounts) > 1}">
+		<h1 class="page-title">Transfert pour ${client.firstname} ${client.lastname }</h1>
+			<div class="transfer-container">
+				<form method="post" action="">
 				
-				<label for="value"> Montant du virement</label> <input
-					type="number" name="value" id="value">
-				<button>Confirmer</button>
-			</form>
+					<div class ="account-list">
+						<div class="left-list">
+							<h2>Compte à débiter</h2>
+							<table>
+								<tr>
+									<th> Numéro de compte </th>
+									<th class="balance"> Solde en &#8364 </th>
+								</tr>
+								<c:forEach var="account" items="${accounts}">
+									<tr class="data">
+										<td>
+											<input type="radio" id="${account.id}" name="compteADebiter" value="${account.id}">
+											<label for="${account.id}">n°${account.number}</label>
+										</td>
+										<td class="balance">${account.balance}</td>
+								</c:forEach>
+							</table>
+						</div>
+						<div class="right-list">
+							<h2>Compte à créditer</h2>
+							<table>
+								<tr>
+									<th> Numéro de compte </th>
+									<th class="balance"> Solde en &#8364 </th>
+								</tr>
+								<c:forEach var="account" items="${accounts}">
+									<tr class="data">
+										<td>
+											<input type="radio" id="${account.id + 100}" name="compteACrediter" value="${account.id}">
+											<label for="${account.id + 100}">n°${account.number}</label>
+										</td>
+										<td class="balance">${account.balance}</td>
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+					<div class="centered-input">
+						<div>
+							<label for="value"> Montant du virement : </label> 
+							<input type="number" name="value" id="value" style="margin-left : 0.5em;">
+							<button style="margin-left : 2em;">Confirmer</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</c:if>
+		<div class="footer-button">
+			<a href="index.html">
+				<button>Retour à l'accueil</button>
+			</a>
 		</div>
-	</c:if>
-	<div class="footer-button">
-		<a href="index.html">
-			<button>Retour à l'accueil</button>
-		</a>
-	</div>
+	</section>
 </body>
 </html>
