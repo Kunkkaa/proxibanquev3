@@ -22,10 +22,10 @@ public class AccountDao implements Dao<Account> {
 	public AccountDao() {
 		this.mySqlConn = MySqlConnection.getInstance();
 	}
-
+	
 	/**
-	 * Récupère un compte en particulier à partir de son id.
-	 * 
+	 * {@inheritDoc}
+	 * <br><br>Récupère un compte en particulier à partir de son id.
 	 */
 	@Override
 	public Account read(Integer id) {
@@ -50,14 +50,18 @@ public class AccountDao implements Dao<Account> {
 		}
 		return account;
 	}
-
+	/**
+	 * {@inheritDoc}
+	 * <br><br>Récupère l'ensemble des comptes enregistrés. Pas encore implémentée car non utilisée par l'application actuellement.
+	 */
 	@Override
 	public List<Account> readAll() {
 		return null;
 	}
-
+	
 	/**
-	 * Recupere l'ensemble des comptes d'un unique client.
+	 * {@inheritDoc}
+	 * <br><br>Recupere l'ensemble des comptes d'un unique client par son id.
 	 * 
 	 * @param idClient Le client d'intérêt.
 	 * @return La liste des comptes du client.
@@ -84,10 +88,10 @@ public class AccountDao implements Dao<Account> {
 		}
 		return accounts;
 	}
-
+	
 	/**
-	 * Met à jour les informations d'un compte.
-	 *
+	 * {@inheritDoc}
+	 * <br><br>Met à jour les informations d'un compte.
 	 */
 	@Override
 	public Account update(Account entity) {
