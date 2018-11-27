@@ -1,17 +1,17 @@
 package fr.formation.proxi.metier.entity;
 
 /**
- * Représentation d'un compte bancaire générique.
+ * Representation d'un compte bancaire generique.
  */
 public class Account {
 
 	/**
-	 * Identifiant technique base de données.
+	 * Identifiant technique base de donnees.
 	 */
 	private Integer id;
 
 	/**
-	 * Identifiant métier, numéro du compte sur 9 chiffres.
+	 * Identifiant meier, numero du compte sur 9 chiffres.
 	 */
 	private String number;
 
