@@ -86,7 +86,7 @@
 					<div class="centered-input">
 						<div>
 							<label for="value"> Montant du virement : </label> 
-							<input type="number" name="value" id="value" style="margin-left : 0.5em;">
+							<input type="number" step=0.01 name="value" id="value" style="margin-left : 0.5em;">
 							<button style="margin-left : 2em;">Confirmer</button>
 						</div>
 					</div>
