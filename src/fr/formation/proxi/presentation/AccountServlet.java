@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.formation.proxi.metier.entity.Account;
+import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.service.AccountService;
+import fr.formation.proxi.metier.service.ClientService;
 
 /**
  * Classe permettant d'accéder, d'envoyer des informations et de gérer le listing des comptes d'un client.
@@ -35,9 +37,11 @@ public class AccountServlet extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		List<Account> currentAccounts= AccountService.getInstance().getAllCurrentAccounts(id);
 		List<Account> savingAccounts= AccountService.getInstance().getAllSavingAccounts(id);
+		Client client = ClientService.getInstance().read(id);
 		req.setAttribute("currentAccounts",currentAccounts);
 		req.setAttribute("savingAccounts",savingAccounts);
 		req.setAttribute("id",id);
+		req.setAttribute("client",client);
 		
 		req.getServletContext().getRequestDispatcher("/WEB-INF/views/account.jsp").forward(req, resp);
 		
