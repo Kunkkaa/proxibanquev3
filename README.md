@@ -8,8 +8,8 @@ Table des Matières :
 	4 - Fonctionalités
 	5 - Ressources complémentaires
 
-	ATTENTION : Ce document contient des informations importantes pour le fonctionnement de ProxiBanqueSI. Veuillez le lire attentivement
-	pour vous assurer la meilleure expérience possible. Les développeurs ne sauraient être tenus responsables d'une mauvaise utilisation
+	ATTENTION : Ce document contient des informations importantes pour le fonctionnement de ProxiBanqueSI. Veuillez le lire 	attentivement
+	pour vous assurer la meilleure expérience possible. Les développeurs ne sauraient être tenus responsables d'une mauvaise 	utilisation
 	de l'application découlant d'une mauvaise ou absence de lecture de ce document. 
 	
 1. Prérequis. 
@@ -36,12 +36,13 @@ Pour avoir accès aux données client, veuillez télécharger l'application MySQL à 
 2. Exécution.
 Afin de deployer l'application ProxiBanque, veuillez coller l'archive proxibanque2_Quentin_Axel.war dans le dossier webapps de votre dossier apache-tomcat-8.5.35. 
 Ensuite, allez dans le dossier bin et double cliquez sur le fichier "startup.bat".
+Attendre qu'un dossier proxibanquev2 apparaisse. 
 
 Veuillez ensuite lancer MySQL Workbench et créer un nouveau schéma nommé "proxi2".
-Ensuite, selectionner "Server" dans le menu supérieur puis "Data import". Selectionner l'option "Import from Self-Contained File et renseigner le chemin vers le fichier str.sql fourni. indiquer "proxi2" en schéma de destination.
+Ensuite, selectionner "Server" dans le menu supérieur puis "Data import". Selectionner l'option "Import from Self-Contained File et renseigner le chemin vers le fichier str.sql fourni. indiquer "proxi2" dans "Default Target Schema".
 Enfin, répéter l'opération précédente avec le script "data.sql" fourni afin d'importer les données proprement dites.
 
-pour lancer l'application, lancer chrom et rentrer l'adresse suivante : http://localhost:8080/proxibanquev2.
+pour lancer l'application, lancer chrome et rentrer l'adresse suivante : http://localhost:8080/proxibanquev2.
 
 Bonne navigation !!!
 
@@ -53,6 +54,7 @@ Dans l'application, la simulation se compose d'une agence, qui possède un manage
 Ce conseiller possède 5 clients aux identités distinctes. Chaque client possède un nom, un prénom, un email, une adresse et une liste de comptes bancaires. 
 Il est possible d'explorer l'ensemble des fonctionnalités avec les données fournies dans l'application.
 
+Une fois que votre usage de l'application touche à son terme, lancez le fichier "shutdown.bat" dans le même dossier que "startup.bat"(Apache Tomcat/bin).
 
 4. Fonctionalités.
 Pour la gestion du portefeuille client, ProxiBanqueSI vous permet ces fonctionalités : 
@@ -62,7 +64,7 @@ Pour la gestion du portefeuille client, ProxiBanqueSI vous permet ces fonctional
 	-Effectuer un virement bancaire entre deux comptes d'un client.
  
  ATTENTION : ProxiBanqueSI traite la plupart des erreurs que l'utilisateur pourrait être amené à rencontrer. 
- A la connaissance des développeurs aucune erreur n'est à relever dans cette version de l'application.
+ A la connaissance des développeurs aucune erreur n'est à relever dans cette version de l'application dans le cadre d'une utilisation normale.
  Certaines erreurs non détectées peuvent subsister. 
  Si des erreurs sont détectées, merci de prévenir au plus vite l'équipe de développement. 
 
@@ -71,6 +73,8 @@ Pour la gestion du portefeuille client, ProxiBanqueSI vous permet ces fonctional
 L'application ProxiBanqueSI est livrée avec deux diagrammes UML représentant : 
 	- Les cas d'utilisation;
 	- Le Diagramme de Classe;
+	- Les screens des maquettes d'écran. 
+	- Le Diagramme des bases de données SQL
 	- Les scripts sql pour générer la base de données. 
 
 
