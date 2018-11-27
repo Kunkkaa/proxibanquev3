@@ -206,5 +206,19 @@ h4 {
 	margin-top: 2em;
 }
 
+/* style error.js */
 
+.error-section{
+	width: 100vw;
+	height: 75vh;
+	background-image: url(../img/error-image.png);
+	background-size: cover;
+	background-position: 50% 50%;
+	
+}
+
+.div-error{
+	width: 10em;
+	height: 2em;
+}
 
