@@ -55,8 +55,8 @@
 			<div class="client-container">
 				<div class="client-contain">
 					<p class="name"> ${client.firstname} ${client.lastname}</p> 
-					<p> ${client.email} </p> 
-					<p> ${client.address} </p>
+					<p class="text"> ${client.email} </p> 
+					<p class="text"> ${client.address} </p>
 						<div class="button-container">
 							<div>
 								<a href="modify.html?id=${client.id}">

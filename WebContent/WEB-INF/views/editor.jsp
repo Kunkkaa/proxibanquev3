@@ -53,10 +53,10 @@
 				
 			</div>
 		<div class="buttons">
-			<button>Valider</button>
-			<button type="reset">Réinitialiser</button>
+			<button class="button">Valider</button>
+			<button type="reset" class="button">Réinitialiser</button>
 			<a href="index.html">
-				<button>Retour à l'accueil</button>
+				<button class="button">Retour à l'accueil</button>
 			</a>
 		</div>
 		</form>

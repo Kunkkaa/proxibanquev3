@@ -85,9 +85,9 @@
 					</div>
 					<div class="centered-input">
 						<div>
-							<label for="value"> Montant du virement : </label> 
+							<label for="value" class="text"> Montant du virement : </label> 
 							<input type="number" step=0.01 name="value" id="value" style="margin-left : 0.5em;">
-							<button style="margin-left : 2em;">Confirmer</button>
+							<button style="margin-left : 2em;" class="button">Confirmer</button>
 						</div>
 					</div>
 				</form>
@@ -95,7 +95,7 @@
 		</c:if>
 		<div class="footer-button">
 			<a href="index.html">
-				<button>Retour à l'accueil</button>
+				<button class="button">Retour à l'accueil</button>
 			</a>
 		</div>
 	</section>
