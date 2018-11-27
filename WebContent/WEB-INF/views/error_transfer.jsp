@@ -37,7 +37,7 @@
 
 	<div class="transfer-button">
 		<a href="index.html">
-			<button>Retour à l'awsdfhwdfghgfkhghtgjgcccueil</button>
+			<button>Retour à l'accueil</button>
 		</a>
 	</div>
 </body>

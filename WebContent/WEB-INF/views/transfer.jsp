@@ -38,7 +38,7 @@
 	
 	<section class="account-body">
 		<c:if test="${not empty transferRate}">
-			<h1 class="page-title">FATAL ERROR : Le compte à debiter aura un solde negatif avec le
+			<h1 class="page-title">Erreur : Le compte à debiter aura un solde negatif avec le
 				montant renseigné</h1>
 		</c:if>
 	
