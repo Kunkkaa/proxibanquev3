@@ -21,7 +21,6 @@ public class EditorServlet extends HttpServlet {
 
 
 	private static final long serialVersionUID = 1L;
-	private Logger logger = Logger.getLogger(EditorServlet.class.getName());
 	
 	/**
 	 * Methode permettant d'acceder a  editor.jsp.
@@ -52,7 +51,6 @@ public class EditorServlet extends HttpServlet {
 		
 		Client client = new Client(id, firstname, lastname, email, address);
 		ClientService.getInstance().update(client);
-		logger.info("Mise à jour du client réussie !");
 		
 		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 		

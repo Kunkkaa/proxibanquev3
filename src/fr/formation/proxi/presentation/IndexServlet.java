@@ -15,7 +15,7 @@ import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.service.ClientService;
 
 /**
- * Classe permettant d'acceder a l'application par la page d'accueil index.html.
+ * Classe permettant de gerer l'affichage de l'ecran d'accueil en chargeant la liste des clients de l'application.
  * @author Adminl
  *
  */

@@ -16,7 +16,7 @@ import fr.formation.proxi.metier.service.AccountService;
 import fr.formation.proxi.metier.service.ClientService;
 
 /**
- * Classe permettant d'acceder à la page d'affichage de la liste des comptes d'un client.
+ * Classe gerant l'affichage de la liste des comptes d'un client.
  * @author Adminl
  *
  */
