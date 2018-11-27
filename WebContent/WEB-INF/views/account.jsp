@@ -41,7 +41,7 @@
 				<h1 class="page-title">Liste des comptes de ${client.firstname} ${client.lastname }</h1>
 				<div class="transfer-button">
 					<a href="transfer.html?id=${id}">
-						<button >Faire un virement</button>
+						<button class="button">Faire un virement</button>
 					</a>
 				</div>
 			</div>
@@ -89,9 +89,26 @@
 			</div>
 			<div class="footer-button">
 				<a href="index.html">
-					<button>Retour à l'accueil</button>
+					<button class="button">Retour à l'accueil</button>
 				</a>
 			</div>
 		</section>
+		
+		<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<span class="copyright">Copyright &copy; Proxibanque 2018</span>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline quicklinks">
+						<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+						<li class="list-inline-item"><a href="#">Terms of Use</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
