@@ -8,9 +8,9 @@ Table des Matières :
 	4 - Fonctionalités
 	5 - Ressources complémentaires
 
-	ATTENTION : Ce document contient des informations importantes pour le fonctionnement de ProxiBanqueSI. Veuillez le lire 	attentivement
-	pour vous assurer la meilleure expérience possible. Les développeurs ne sauraient être tenus responsables d'une mauvaise 	utilisation
-	de l'application découlant d'une mauvaise ou absence de lecture de ce document. 
+ATTENTION : Ce document contient des informations importantes pour le fonctionnement de ProxiBanqueSI. Veuillez le lire 	attentivement
+pour vous assurer la meilleure expérience possible. Les développeurs ne sauraient être tenus responsables d'une mauvaise 	utilisation
+de l'application découlant d'une mauvaise ou absence de lecture de ce document. 
 	
 1. Prérequis. 
 	Avant de lancer ProxiBanqueSi, vous devez vous assurer que Java est bien installé sur votre appareil. Si ce n'est pas le cas, vous 
