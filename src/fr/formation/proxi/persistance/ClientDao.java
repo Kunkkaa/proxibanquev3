@@ -86,6 +86,11 @@ public class ClientDao implements Dao<Client> {
 	 */
 	@Override
 	public Client update(Client entity) {
+		
+		entity.setFirstname(entity.getFirstname().replaceAll("\'", "\'\'"));
+		entity.setLastname(entity.getLastname().replaceAll("\'", "\'\'"));
+		entity.setEmail(entity.getEmail().replaceAll("\'", "\'\'"));
+		entity.setAddress(entity.getAddress().replaceAll("\'", "\'\'"));
 
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
