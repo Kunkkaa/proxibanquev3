@@ -3,21 +3,41 @@ package fr.formation.proxi.metier.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
- * Représentation d'un client de la banque.
+ * Reprï¿½sentation d'un client de la banque.
  */
+@Entity
+@Table(name="client")
 public class Client {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 
+	@Column
 	private String firstname;
 
+	@Column
 	private String lastname;
 
+	@Column
 	private String email;
 
+	@Column(length=200)
 	private String address;
 
+	@OneToMany
+	@JoinColumn(columnDefinition="id_account", referencedColumnName="id")
 	private List<Account> accounts;
 
 	public Client() {

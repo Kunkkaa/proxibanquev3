@@ -1,29 +1,44 @@
 package fr.formation.proxi.metier.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Representation d'un compte bancaire generique.
  */
+@Entity
+@Table(name="account")
 public class Account {
 
 	/**
 	 * Identifiant technique base de donnees.
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 
 	/**
 	 * Identifiant meier, numero du compte sur 9 chiffres.
 	 */
+	@Column
 	private String number;
 
 	/**
 	 * Stockage du solde actuel de ce compte en euros.
 	 */
+	@Column
 	private Float balance;
 
 	/**
 	 * Si vrai, c'est un compte epargne, sinon c'est un compte courant.
 	 */
-	private boolean savings;
+	@Column
+	private Boolean savings;
 
 	public Account() {
 		this.savings = false;
@@ -70,11 +85,11 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public boolean isSavings() {
+	public Boolean isSavings() {
 		return savings;
 	}
 
-	public void setSavings(boolean savings) {
+	public void setSavings(Boolean savings) {
 		this.savings = savings;
 	}
 
