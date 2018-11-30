@@ -5,9 +5,10 @@ import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.persistance.AccountDao;
+import fr.formation.proxi.persistance.ClientDao;
 
 /**
- * Clsse regroupant les traitements à effectuer sur les comptes des clients.
+ * Clsse regroupant les traitements ï¿½ effectuer sur les comptes des clients.
  * Respecte le design pattern singleton.
  * 
  * @author Adminl
@@ -16,7 +17,13 @@ import fr.formation.proxi.persistance.AccountDao;
 public class AccountService {
 
 	private static final AccountService INSTANCE = new AccountService();
-	private AccountDao dao = new AccountDao();
+	private AccountDao accountDao;
+	private ClientDao clientDao;
+	
+	public AccountService() {
+		this.accountDao = new AccountDao();
+		this.clientDao = new ClientDao();
+	}
 
 	/**
 	 * Retourne le singleton de la classe.
@@ -28,7 +35,7 @@ public class AccountService {
 	}
 
 	/**
-	 * Recupère la liste de tous les comptes associés à un client.
+	 * Recupï¿½re la liste de tous les comptes associï¿½s ï¿½ un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes.
 	 * @return La liste des comptes du client.
@@ -36,23 +43,23 @@ public class AccountService {
 	public List<Account> getAll(Integer idClient) {
 		List<Account> accounts = new ArrayList<>();
 
-		accounts = this.dao.readAllAccountsForOneClient(idClient);
+		accounts = this.clientDao.read(idClient).getAccounts();
 
 		return accounts;
 
 	}
 
 	/**
-	 * Recupère la liste des comptes épargne d'un client.
+	 * Recupï¿½re la liste des comptes ï¿½pargne d'un client.
 	 * 
-	 * @param idClient L'id du client dont on veut les comptes épargne.
-	 * @return La liste des comptes épargne du client.
+	 * @param idClient L'id du client dont on veut les comptes ï¿½pargne.
+	 * @return La liste des comptes ï¿½pargne du client.
 	 */
 	public List<Account> getAllSavingAccounts(Integer idClient) {
 		List<Account> SavingAccounts = new ArrayList<>();
 
 		List<Account> accounts = new ArrayList<>();
-		accounts = this.dao.readAllAccountsForOneClient(idClient);
+		accounts = this.clientDao.read(idClient).getAccounts();
 
 		for (Account account : accounts) {
 			if (account.isSavings()) {
@@ -63,7 +70,7 @@ public class AccountService {
 	}
 
 	/**
-	 * Recupère la liste des comptes courant d'un client.
+	 * Recupï¿½re la liste des comptes courant d'un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes courant.
 	 * @return La liste des comptes courant du client.
@@ -72,7 +79,7 @@ public class AccountService {
 		List<Account> CurrentAccounts = new ArrayList<>();
 
 		List<Account> accounts = new ArrayList<>();
-		accounts = this.dao.readAllAccountsForOneClient(idClient);
+		accounts = this.clientDao.read(idClient).getAccounts();
 
 		for (Account account : accounts) {
 			if (!account.isSavings()) {
@@ -83,6 +90,6 @@ public class AccountService {
 	}
 
 	public AccountDao getDao() {
-		return this.dao;
+		return this.accountDao;
 	}
 }

@@ -3,6 +3,8 @@ package fr.formation.proxi.persistance;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import fr.formation.proxi.metier.entity.Client;
 
 /**
@@ -12,41 +14,30 @@ import fr.formation.proxi.metier.entity.Client;
  * @author Adminl
  *
  */
-public class ClientDao implements Dao<Client> {
-
-	private MySqlConnection mySqlConn;
-
-	public ClientDao() {
-		this.mySqlConn = MySqlConnection.getInstance();
-	}
+public class ClientDao extends AbstractDao<Client> {
 
 	/**
-	 * {@inheritDoc}
-	 * <br><br>Permet de recuperer les informations d'un client a partir de son id.
+	 * {@inheritDoc} <br>
+	 * <br>
+	 * Permet de recuperer les informations d'un client a partir de son id.
 	 */
 	@Override
 	public Client read(Integer id) {
-		Client client = null;
-		return client;
+		return this.read(id, new Client());
 	}
 
 	/**
-	 * {@inheritDoc}
-	 * <br><br>Permet de recuperer l'ensemble des clients du conseiller.
+	 * {@inheritDoc} <br>
+	 * <br>
+	 * Permet de recuperer l'ensemble des clients du conseiller.
 	 */
 	@Override
 	public List<Client> readAll() {
 		List<Client> clients = new ArrayList<>();
+		TypedQuery<Client> query = this.em
+				.createQuery(JpqlQueries.SELECT_ALL_CLIENT, Client.class);
+		clients.addAll(query.getResultList());
 		return clients;
-	}
-	/**
-	 * {@inheritDoc}
-	 * <br><br>Met a jour les informations d'un client specifique. Gere la modification du
-	 * nom, du prenom, de l'email et de l'adresse du client.
-	 */
-	@Override
-	public Client update(Client entity) {
-		return entity;
 	}
 
 }

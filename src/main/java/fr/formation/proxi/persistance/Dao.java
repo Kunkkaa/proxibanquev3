@@ -3,35 +3,51 @@ package fr.formation.proxi.persistance;
 import java.util.List;
 
 /**
- * Definition d'une interface comportant les 4 méthodes elementaires de
+ * Definition d'une interface comportant les 4 mï¿½thodes elementaires de
  * manipulation de donnees CRUD + readALL.
  * 
  * @param <T> classe qui represente le type de donnees manipule par le DAO.
  */
 public interface Dao<T> {
+	
+	/**
+	 * CrÃ©e une nouvelle entitÃ© en base de donnÃ©es.
+	 * 
+	 * @param entity l'entitÃ© Ã  crÃ©er.
+	 * @return T l'entitÃ© avec son identifiant rempli.
+	 */
+	public T create(T entity);
 
 	/**
 	 * Lit les informations d'une entite de BDD
 	 * 
 	 * @param id l'identifiant d'une entite en base de donnees
-	 * @return T l'entité construite à partir des informations recuperees
+	 * @return T l'entitï¿½ construite ï¿½ partir des informations recuperees
 	 * 
 	 */
 	public T read(Integer id);
 
 	/**
-	 * Recupere toutes les entités (lignes) d'une table
+	 * Recupere toutes les entitï¿½s (lignes) d'une table
 	 * 
 	 * @return List<T> la liste de toutes les entites lues.
 	 */
 	public List<T> readAll();
 
 	/**
-	 * met à jour l'entite donne dans la BDD
+	 * met ï¿½ jour l'entite donne dans la BDD
 	 * 
-	 * @param entity l'entite à mettre a jour avec les nouvelles informations
-	 * @return l'entite mise à jour
+	 * @param entity l'entite ï¿½ mettre a jour avec les nouvelles informations
+	 * @return l'entite mise ï¿½ jour
 	 */
 	public T update(T entity);
+	
+	/**
+	 * Supprime dÃ©finitivement une entitÃ© de la base de donnÃ©es.
+	 * 
+	 * @param id l'identifiant unique de l'entitÃ©.
+	 * @return boolean vrai si la suppression est un succÃ¨s, sinon faux.
+	 */
+	public boolean delete(Integer id);
 
 }

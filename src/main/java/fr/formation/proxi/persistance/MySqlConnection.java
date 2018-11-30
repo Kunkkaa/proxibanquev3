@@ -34,7 +34,7 @@ public class MySqlConnection {
 	 */
 	public MySqlConnection() {
 		this.entityManagerFactory = Persistence
-				.createEntityManagerFactory("blog");
+				.createEntityManagerFactory("proxibanquev2");
 	}
 
 	/**
