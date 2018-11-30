@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Représentation d'un client de la banque.
+ * Repr�sentation d'un client de la banque.
  */
 public class Client {
 
-	/**
-	 * Identifiant technique base de données.
-	 */
 	private Integer id;
 
 	private String firstname;
@@ -21,9 +18,6 @@ public class Client {
 
 	private String address;
 
-	/**
-	 * Liste des comptes du client.
-	 */
 	private List<Account> accounts;
 
 	public Client() {
@@ -37,6 +31,11 @@ public class Client {
 		this.lastname = lastname;
 		this.email = email;
 		this.address = address;
+	}
+
+	public Client(Integer id, String firstname, String lastname, String email, String address) {
+		this(firstname, lastname, email, address);
+		this.id = id;
 	}
 
 	public Integer getId() {

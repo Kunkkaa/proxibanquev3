@@ -1,27 +1,27 @@
 package fr.formation.proxi.metier.entity;
 
 /**
- * Représentation d'un compte bancaire générique.
+ * Representation d'un compte bancaire generique.
  */
 public class Account {
 
 	/**
-	 * Identifiant technique base de données.
+	 * Identifiant technique base de donnees.
 	 */
 	private Integer id;
 
 	/**
-	 * Identifiant métier, numéro du compte sur 9 chiffres.
+	 * Identifiant meier, numero du compte sur 9 chiffres.
 	 */
 	private String number;
 
 	/**
-	 * Stockage du solde actuel de ce compte en €.
+	 * Stockage du solde actuel de ce compte en euros.
 	 */
 	private Float balance;
 
 	/**
-	 * Si vrai, c'est un compte épargne, sinon c'est un compte courant.
+	 * Si vrai, c'est un compte epargne, sinon c'est un compte courant.
 	 */
 	private boolean savings;
 
@@ -39,6 +39,11 @@ public class Account {
 	public Account(String number, Float balance, boolean savings) {
 		this(number, balance);
 		this.savings = savings;
+	}
+	
+	public Account(Integer id, String number, Float balance, boolean savings) {
+		this(number, balance, savings);
+		this.id = id;
 	}
 
 	public Integer getId() {
