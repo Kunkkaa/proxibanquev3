@@ -37,7 +37,7 @@ public class Client {
 	private String address;
 
 	@OneToMany
-	@JoinColumn(columnDefinition="id_account", referencedColumnName="id")
+	@JoinColumn(columnDefinition="id", referencedColumnName="id")
 	private List<Account> accounts;
 
 	public Client() {

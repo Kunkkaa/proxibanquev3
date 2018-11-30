@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
+import fr.formation.proxi.metier.entity.CurrentAccount;
+import fr.formation.proxi.metier.entity.SavingsAccount;
 import fr.formation.proxi.persistance.AccountDao;
 import fr.formation.proxi.persistance.ClientDao;
 
@@ -62,7 +64,7 @@ public class AccountService {
 		accounts = this.clientDao.read(idClient).getAccounts();
 
 		for (Account account : accounts) {
-			if (account.isSavings()) {
+			if (account instanceof SavingsAccount) {
 				SavingAccounts.add(account);
 			}
 		}
@@ -82,7 +84,7 @@ public class AccountService {
 		accounts = this.clientDao.read(idClient).getAccounts();
 
 		for (Account account : accounts) {
-			if (!account.isSavings()) {
+			if (account instanceof CurrentAccount) {
 				CurrentAccounts.add(account);
 			}
 		}

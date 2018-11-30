@@ -4,11 +4,13 @@ import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.entity.Client;
+import fr.formation.proxi.metier.entity.CurrentAccount;
+import fr.formation.proxi.metier.entity.SavingsAccount;
 import fr.formation.proxi.persistance.AccountDao;
 import fr.formation.proxi.persistance.ClientDao;
 
 /**
- * Clsse regroupant les traitements à effectuer sur les clients. Respecte le
+ * Clsse regroupant les traitements ï¿½ effectuer sur les clients. Respecte le
  * design pattern singleton.
  * 
  * @author Adminl
@@ -35,7 +37,7 @@ public class ClientService {
 	}
 
 	/**
-	 * Recupère la liste de tous les clients suivis par le conseiller.
+	 * Recupï¿½re la liste de tous les clients suivis par le conseiller.
 	 * 
 	 * @return La liste des clients du conseiller.
 	 */
@@ -44,14 +46,14 @@ public class ClientService {
 	}
 
 	/**
-	 * Permet de faire un virement entre deux comptes d'un même client. Cette
-	 * méthode ne fait pas de virement intra-compte ni de virement qui rendrait le
-	 * compte débité en solde négatif.
+	 * Permet de faire un virement entre deux comptes d'un mï¿½me client. Cette
+	 * mï¿½thode ne fait pas de virement intra-compte ni de virement qui rendrait le
+	 * compte dï¿½bitï¿½ en solde nï¿½gatif.
 	 * 
-	 * @param value         Le montant du virement à effectuer.
-	 * @param compteDebite  Le compte à débiter.
-	 * @param compteCredite Le compte à créditer
-	 * @return False si le virement aurait rendu le compte débité en solde négatif.
+	 * @param value         Le montant du virement ï¿½ effectuer.
+	 * @param compteDebite  Le compte ï¿½ dï¿½biter.
+	 * @param compteCredite Le compte ï¿½ crï¿½diter
+	 * @return False si le virement aurait rendu le compte dï¿½bitï¿½ en solde nï¿½gatif.
 	 *         True sinon.
 	 */
 	public boolean transfer(Float value, Account compteDebite, Account compteCredite) {
@@ -62,21 +64,35 @@ public class ClientService {
 			transferOK = false;
 			return transferOK;
 		} else {
-			Account compteCrediteActualise = new Account(compteCredite.getId(), compteCredite.getNumber(),
-					(compteCredite.getBalance() + value), compteCredite.isSavings());
+			Account compteCrediteActualise;
+			if (compteCredite instanceof CurrentAccount) {
+				compteCrediteActualise = new CurrentAccount();
+			} else {
+				compteCrediteActualise = new SavingsAccount();
+			}
+			compteCrediteActualise.setId(compteCredite.getId());
+			compteCrediteActualise.setBalance(compteCredite.getBalance() + value);
+			compteCrediteActualise.setNumber(compteCredite.getNumber());
 			this.daoAccount.update(compteCrediteActualise);
 
-			Account compteDebiteActualise = new Account(compteDebite.getId(), compteDebite.getNumber(),
-					(compteDebite.getBalance() - value), compteDebite.isSavings());
+			Account compteDebiteActualise;
+			if (compteDebite instanceof CurrentAccount) {
+				compteDebiteActualise = new CurrentAccount();
+			} else {
+				compteDebiteActualise = new SavingsAccount();
+			}
+			compteDebiteActualise.setId(compteDebite.getId());
+			compteDebiteActualise.setBalance(compteDebite.getBalance() - value);
+			compteDebiteActualise.setNumber(compteDebite.getNumber());
 			this.daoAccount.update(compteDebiteActualise);
 			return transferOK;
 		}
 	}
 
 	/**
-	 * Permet de récupérer un client à partir de son id dans la Base De Données.
+	 * Permet de rï¿½cupï¿½rer un client ï¿½ partir de son id dans la Base De Donnï¿½es.
 	 * 
-	 * @param id L'id du client à récupérer.
+	 * @param id L'id du client ï¿½ rï¿½cupï¿½rer.
 	 * @return Le client.
 	 */
 	public Client read(Integer id) {
@@ -84,10 +100,10 @@ public class ClientService {
 	}
 
 	/**
-	 * Permet de mettre à jour les informations d'un client. Cette méthode gère la
-	 * modification du nom, du prénom, du mail et de l'adresse du client.
+	 * Permet de mettre ï¿½ jour les informations d'un client. Cette mï¿½thode gï¿½re la
+	 * modification du nom, du prï¿½nom, du mail et de l'adresse du client.
 	 * 
-	 * @param client L'id du client à actualiser.
+	 * @param client L'id du client ï¿½ actualiser.
 	 */
 	public void update(Client client) {
 		this.daoClient.update(client);

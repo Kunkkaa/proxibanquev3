@@ -1,10 +1,13 @@
 package fr.formation.proxi.metier.entity;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
@@ -12,6 +15,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="account")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="savings")
 public class Account {
 
 	/**
@@ -34,14 +39,7 @@ public class Account {
 	@Column
 	private Float balance;
 
-	/**
-	 * Si vrai, c'est un compte epargne, sinon c'est un compte courant.
-	 */
-	@Column
-	private Boolean savings;
-
 	public Account() {
-		this.savings = false;
 		this.balance = 0F;
 	}
 
@@ -51,13 +49,8 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public Account(String number, Float balance, boolean savings) {
+	public Account(Integer id, String number, Float balance) {
 		this(number, balance);
-		this.savings = savings;
-	}
-	
-	public Account(Integer id, String number, Float balance, boolean savings) {
-		this(number, balance, savings);
 		this.id = id;
 	}
 
@@ -83,14 +76,6 @@ public class Account {
 
 	public void setBalance(Float balance) {
 		this.balance = balance;
-	}
-
-	public Boolean isSavings() {
-		return savings;
-	}
-
-	public void setSavings(Boolean savings) {
-		this.savings = savings;
 	}
 
 }
