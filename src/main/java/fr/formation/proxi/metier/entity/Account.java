@@ -13,17 +13,30 @@ import javax.persistence.Table;
 /**
  * Representation d'un compte bancaire generique.
  */
+//Déclare cette classe en tant qu'entité gérée par JPA/Hibernate.
 @Entity
-@Table(name="account")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="savings")
+// Lien avec la table SQL unique.
+@Table(name = "account")
+// Déclaration d'une hierarchie dans les clases Java d'entité.
+// La stratégie SINGLE_TABLE précise qu'il n'y aura toujours qu'une seule table SQL pour tous les types de comptes.
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+// Déclare la colonne SQL à utiliser pour différencier les sous-classes de Account (soit CurrentAccount ou SavingsAccount).
+@DiscriminatorColumn(name = "savings")
+/*
+ * L'annotation ci-dessous est désactivée car elle ne fonctionne que si la
+ * classe mère Account n'est JAMAIS utilisée dans les entités. Or on l'utilise
+ * dans la classe Client avec List<Account>. On doit donc utiliser @Entity à la
+ * place. Il ne peut il y avoir qu'une des deux annotations @Entity
+ * ou @MappedSuperclass sur une entité JPA.
+ */
+//@MappedSuperclass
 public class Account {
 
 	/**
 	 * Identifiant technique base de donnees.
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer id;
 

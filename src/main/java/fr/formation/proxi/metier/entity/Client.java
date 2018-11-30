@@ -15,12 +15,18 @@ import javax.persistence.Table;
 /**
  * Repr�sentation d'un client de la banque.
  */
+// Déclare cette classe en tant qu'entité gérée par JPA/Hibernate.
 @Entity
-@Table(name="client")
+// Déclare le lien avec la table SQL.
+@Table(name = "client")
 public class Client {
 
+	/**
+	 * Définition de l'identifiant JPA correspondant à la clé primaire en SQL.
+	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	// On précise que l'identifiant est une valeur générée par Auto-Increment.
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer id;
 
@@ -33,11 +39,31 @@ public class Client {
 	@Column
 	private String email;
 
-	@Column(length=200)
+	@Column(length = 200)
 	private String address;
 
+	/*
+	 * Déclaration d'une relation de Client 0/1 -> 0/n Account côté Java.
+	 * 
+	 * Cette relation donne toujours lieu à l'utilisation d'une List Java. Le
+	 * lien effectué en base de données est configuré avec l'annotation
+	 * suivante.
+	 */
 	@OneToMany
-	@JoinColumn(columnDefinition="id", referencedColumnName="id")
+	/*
+	 * Déclaration de la relation Client -> Compte en SQL. Une colonne de
+	 * jointure utilisant une clé étrangère sera créée dans la table account.
+	 * 
+	 * 'columnDefinition' -> nom de l'attribut Java qui détermine l'identifiant
+	 * de ma classe Client.
+	 * 
+	 * 'referencedColumnName' -> nom de l'attribut Java qui détermine
+	 * l'identifiant de la classe cible Account.
+	 * 
+	 * 'name' -> nom de la colonne SQL de jointure comportant la clé étrangère.
+	 * On conserve le nom 'accounts_id' choisi par Hibernate.
+	 */
+	@JoinColumn(name = "accounts_id", columnDefinition = "id", referencedColumnName = "id")
 	private List<Account> accounts;
 
 	public Client() {
@@ -53,7 +79,8 @@ public class Client {
 		this.address = address;
 	}
 
-	public Client(Integer id, String firstname, String lastname, String email, String address) {
+	public Client(Integer id, String firstname, String lastname, String email,
+			String address) {
 		this(firstname, lastname, email, address);
 		this.id = id;
 	}
