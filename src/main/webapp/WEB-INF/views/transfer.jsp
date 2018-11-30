@@ -46,7 +46,7 @@
 		<h1 class="page-title">Transfert pour ${client.firstname} ${client.lastname }</h1>
 			<div class="transfer-container">
 				<form method="post" action="">
-				
+					
 					<div class ="account-list">
 						<div class="left-list">
 							<h2>Compte à débiter</h2>

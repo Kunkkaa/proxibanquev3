@@ -23,8 +23,8 @@ public class AccountService {
 	private ClientDao clientDao;
 	
 	public AccountService() {
-		this.accountDao = new AccountDao();
-		this.clientDao = new ClientDao();
+		this.accountDao = AccountDao.getInstance();
+		this.clientDao = ClientDao.getInstance();
 	}
 
 	/**

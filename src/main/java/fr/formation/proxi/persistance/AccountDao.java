@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import fr.formation.proxi.metier.entity.Account;
-import fr.formation.proxi.metier.entity.Client;
 
 /**
  * Classe permettant les op�rations du C.R.U.D pour les comptes des clients.
@@ -16,6 +15,12 @@ import fr.formation.proxi.metier.entity.Client;
  *
  */
 public class AccountDao extends AbstractDao<Account> {
+	
+	private static final AccountDao INSTANCE = new AccountDao();
+	
+	public static AccountDao getInstance() {
+		return AccountDao.INSTANCE;
+	}
 
 	/**
 	 * {@inheritDoc}

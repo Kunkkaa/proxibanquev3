@@ -16,6 +16,12 @@ import fr.formation.proxi.metier.entity.Client;
  */
 public class ClientDao extends AbstractDao<Client> {
 
+	private static final ClientDao INSTANCE = new ClientDao();
+	
+	public static ClientDao getInstance() {
+		return ClientDao.INSTANCE;
+	}
+	
 	/**
 	 * {@inheritDoc} <br>
 	 * <br>
