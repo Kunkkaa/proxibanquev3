@@ -85,6 +85,12 @@ public class Client {
 		this.id = id;
 	}
 
+	public Client(Integer id, String firstname, String lastname, String email,
+			String address, List<Account> accounts) {
+		this(id, firstname, lastname, email, address);
+		this.accounts = accounts;
+	}
+
 	public Integer getId() {
 		return id;
 	}
