@@ -1,0 +1,11 @@
+<Context>
+	<Resource name="jdbc/proxibanquev2" auth="Container"
+		type="javax.sql.DataSource" maxActive="5" maxIdle="3" maxWait="3000"
+		username="root" password="root" driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/proxibanquev2-jpa?serverTimezone=Europe/Paris" />
+
+	<Realm className="org.apache.catalina.realm.DataSourceRealm"
+		dataSourceName="jdbc/proxibanquev2" localDataSource="true"
+		userTable="advisor" userRoleTable="roles" userNameCol="username"
+		userCredCol="password" roleNameCol="rolename" />
+</Context>
