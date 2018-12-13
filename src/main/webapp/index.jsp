@@ -35,7 +35,7 @@
 </head>
 
 <body id="page-top">
-	<a href="logout">Se déconnecter</a>
+	<a class="logout" href="logout">Se déconnecter</a>
 	<!-- Header -->
 	<header class="masthead">
 		<div class="container">

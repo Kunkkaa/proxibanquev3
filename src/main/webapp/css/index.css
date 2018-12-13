@@ -6,6 +6,11 @@ footer {
 }
 
 /* style pour index.jsp */
+a.logout {
+	float: right;
+	color: black;
+}
+
 header.masthead {
 	background-image: url(../img/header-bg.jpg);
 	height: 45vh;
