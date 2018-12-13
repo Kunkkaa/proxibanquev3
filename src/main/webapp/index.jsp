@@ -35,7 +35,7 @@
 </head>
 
 <body id="page-top">
-	<a class="logout" href="logout">Se déconnecter</a>
+	<jsp:include page="/WEB-INF/views/advisor.jsp" />
 	<!-- Header -->
 	<header class="masthead">
 		<div class="container">
