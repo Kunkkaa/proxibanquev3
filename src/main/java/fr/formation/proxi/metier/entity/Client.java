@@ -63,7 +63,7 @@ public class Client {
 	 * 'name' -> nom de la colonne SQL de jointure comportant la clé étrangère.
 	 * On conserve le nom 'accounts_id' choisi par Hibernate.
 	 */
-	@JoinColumn(name = "accounts_id", columnDefinition = "id", referencedColumnName = "id")
+	@JoinColumn(name = "accounts_id", referencedColumnName = "id")
 	private List<Account> accounts;
 
 	public Client() {
