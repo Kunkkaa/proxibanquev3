@@ -1,7 +1,7 @@
 package fr.formation.proxi.presentation;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,10 +34,6 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		List<Client> clients = ClientService.getInstance().getAll();
-		req.setAttribute("clients", clients);
-		logger.info("Liste des clients chargée");
-
 		// Lorsque le LoginModule de JAAS effectue le login avec succès,
 		// il rempli les différents objets java.security.Principal avec les
 		// informations de connexion : nom d'utilisateur et rôle pour nous ici.
@@ -55,6 +51,15 @@ public class IndexServlet extends HttpServlet {
 			// à cette information depuis les pages JSP.
 			req.getSession().setAttribute("advisor", advisor);
 		}
+		// TODO:
+		// - Récupérer une instance du service pour le conseiller
+		// - Récupérer le nom du UserPrincipal connecté
+		// - Appeler le service pour récupérer l'identifiant du conseiller
+		// - Appeler le service pour récupérer la liste des clients à partir de l'identifiant obtenu
+		
+		List<Client> clients = new ArrayList<>();// ancienne valeur : ClientService.getInstance().getAll();
+		req.setAttribute("clients", clients);
+		logger.info("Liste des clients chargée");
 
 		// On continue avec la page JSP.
 		this.getServletContext().getRequestDispatcher("/index.jsp").forward(req,
