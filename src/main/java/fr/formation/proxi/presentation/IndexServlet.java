@@ -1,7 +1,6 @@
 package fr.formation.proxi.presentation;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import fr.formation.proxi.metier.entity.Client;
-import fr.formation.proxi.metier.service.ClientService;
+import fr.formation.proxi.metier.service.AdvisorService;
 
 /**
  * Classe permettant de gerer l'affichage de l'ecran d'accueil en chargeant la
@@ -51,13 +50,11 @@ public class IndexServlet extends HttpServlet {
 			// à cette information depuis les pages JSP.
 			req.getSession().setAttribute("advisor", advisor);
 		}
-		// TODO:
-		// - Récupérer une instance du service pour le conseiller
-		// - Récupérer le nom du UserPrincipal connecté
-		// - Appeler le service pour récupérer l'identifiant du conseiller
-		// - Appeler le service pour récupérer la liste des clients à partir de l'identifiant obtenu
+		String advisorName = req.getUserPrincipal().getName();
+		AdvisorService advisorService = AdvisorService.getInstance();
+		Integer advisorId = advisorService.getAdvisorIdByName(advisorName);
+		List<Client> clients = advisorService.getClientsByAdvisorId(advisorId); 
 		
-		List<Client> clients = new ArrayList<>();// ancienne valeur : ClientService.getInstance().getAll();
 		req.setAttribute("clients", clients);
 		logger.info("Liste des clients chargée");
 
