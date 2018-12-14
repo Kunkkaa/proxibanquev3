@@ -2,6 +2,7 @@ package fr.formation.proxi.metier.service;
 
 import java.util.List;
 
+import fr.formation.proxi.metier.entity.Advisor;
 import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.persistance.AdvisorDao;
 
@@ -31,8 +32,8 @@ public class AdvisorService {
 	 * @return List<Client> la liste des clients du conseiller demandé.
 	 */
 	public List<Client> getClientsByAdvisorId(Integer id) {
-		// this.daoAdvisor...
-		return null;
+		Advisor advisor = this.daoAdvisor.read(id);
+		return advisor.getClients();
 	}
 
 	/**
@@ -42,7 +43,6 @@ public class AdvisorService {
 	 * @return Integer l'identifiant du conseiller trouvée.
 	 */
 	public Integer getAdvisorIdByName(String username) {
-		// this.daoAdvisor...
-		return null;
+		return this.daoAdvisor.readIdByName(username);
 	}
 }

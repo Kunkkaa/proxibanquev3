@@ -8,9 +8,9 @@ import javax.persistence.TypedQuery;
 import fr.formation.proxi.metier.entity.Advisor;
 
 public class AdvisorDao extends AbstractDao<Advisor> {
-	
-private static final AdvisorDao INSTANCE = new AdvisorDao();
-	
+
+	private static final AdvisorDao INSTANCE = new AdvisorDao();
+
 	public static AdvisorDao getInstance() {
 		return AdvisorDao.INSTANCE;
 	}
@@ -28,7 +28,7 @@ private static final AdvisorDao INSTANCE = new AdvisorDao();
 		advisors.addAll(query.getResultList());
 		return advisors;
 	}
-	
+
 	/**
 	 * Méthode à implémenter avec une requête JPQL comportant un paramètre.
 	 * 
@@ -43,7 +43,10 @@ private static final AdvisorDao INSTANCE = new AdvisorDao();
 	 */
 	public Integer readIdByName(String username) {
 		Integer result = null;
-		// TODO: TypedQuery avec getSingleResult().
+		TypedQuery<Advisor> query = this.em.createQuery(
+				JpqlQueries.SELECT_ADVISOR_BY_NAME, Advisor.class);
+		query.setParameter("username", username);
+		result = query.getSingleResult().getId();
 		return result;
 	}
 
