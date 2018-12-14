@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -65,6 +66,18 @@ public class Client {
 	 */
 	@JoinColumn(name = "accounts_id", referencedColumnName = "id")
 	private List<Account> accounts;
+	
+	@OneToOne
+	@JoinColumn(name="client_id", referencedColumnName="id")
+	private BankCard card;
+
+	public BankCard getCard() {
+		return card;
+	}
+
+	public void setCard(BankCard card) {
+		this.card = card;
+	}
 
 	public Client() {
 		this.accounts = new ArrayList<>();
