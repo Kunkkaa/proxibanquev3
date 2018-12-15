@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -73,6 +73,20 @@
 									<button class = "button">Virement</button>
 								</a>
 							</div>
+							<c:if test="${ empty client.card }">
+								<div>
+									<a href="card.html?id=${client.id}">
+										<button class="button">Ajouter une carte</button>
+									</a>
+								</div>
+							</c:if>
+							<c:if test="${ not empty client.card }">
+								<div>
+									<a href="delete_card.html?id=${client.id}">
+										<button class="button">Supprimer la carte</button>
+									</a>
+								</div>
+							</c:if>
 						</div>
 				</div>
 			</div>
@@ -84,7 +98,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<h2 class="section-heading text-uppercase">Sexy & Chocolat
+					<h2 class="section-heading text-uppercase">Sexy &amp; Chocolat
 						Dream Team</h2>
 					<h3 class="section-subheading text-muted">Découvrez notre
 						superbe équipe !</h3>

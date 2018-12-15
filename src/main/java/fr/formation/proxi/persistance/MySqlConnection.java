@@ -26,6 +26,11 @@ public class MySqlConnection {
 	 * EntityManagerFactory.
 	 */
 	private EntityManagerFactory entityManagerFactory;
+	
+	/**
+	 * Instance unique pour l'entity manager pour ne pas avoir de problème de refresh avec les données.
+	 */
+	private EntityManager entityManager;
 
 	/**
 	 * Constructeur par défaut. Récupère l'instance d'EntityManagerFactory
@@ -35,6 +40,7 @@ public class MySqlConnection {
 	public MySqlConnection() {
 		this.entityManagerFactory = Persistence
 				.createEntityManagerFactory("proxibanquev2");
+		this.entityManager = this.entityManagerFactory.createEntityManager();
 	}
 
 	/**
@@ -42,7 +48,7 @@ public class MySqlConnection {
 	 *         CRUD sur la base de données.
 	 */
 	public EntityManager getEntityManager() {
-		return this.entityManagerFactory.createEntityManager();
+		return this.entityManager;
 	}
 
 }
