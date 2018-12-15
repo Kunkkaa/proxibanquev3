@@ -67,8 +67,10 @@ public class Client {
 	@JoinColumn(name = "accounts_id", referencedColumnName = "id")
 	private List<Account> accounts;
 	
+	
 	@OneToOne
-	@JoinColumn(name="client_id", referencedColumnName="id")
+	// Pour un OneToOne avec Hibernate 5 et MySQL 8 la clé étrangère sera dans la table client.
+	@JoinColumn(name="card_id", referencedColumnName="id")
 	private BankCard card;
 
 	public BankCard getCard() {
