@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.entity.BankCard;
 import fr.formation.proxi.metier.entity.Client;
+import fr.formation.proxi.metier.entity.CurrentAccount;
+import fr.formation.proxi.metier.service.AccountService;
 import fr.formation.proxi.metier.service.BankCardService;
 import fr.formation.proxi.metier.service.ClientService;
 
@@ -53,10 +56,11 @@ public class BankCardServlet extends HttpServlet {
 		String number = req.getParameter("number");
 		String type = req.getParameter("type");
 		
-		BankCard newCard = BankCardService.getInstance().create(number, type);
-		Client client = ClientService.getInstance().read(id);
-		client.setCard(newCard);
-		ClientService.getInstance().update(client);
+		// TODO mettre le bon type
+		BankCard newCard = BankCardService.getInstance().create(number, true);
+		CurrentAccount account = (CurrentAccount) AccountService.getInstance().getAll(id);
+		account.setCard(newCard);
+		AccountService.getInstance().update(newCard);
 
 		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 	}

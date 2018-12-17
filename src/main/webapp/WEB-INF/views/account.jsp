@@ -38,7 +38,7 @@
 	<section class="head"></section>
 		<section class="account-body">
 			<div class="header-account">
-				<h1 class="page-title">Liste des comptes de ${client.firstname} ${client.lastname }</h1>
+				<h1 class="page-title">Liste des comptes de ${client.firstname} ${client.lastname}</h1>
 				<div class="transfer-button">
 					<a href="transfer.html?id=${id}">
 						<button class="button">Faire un virement</button>

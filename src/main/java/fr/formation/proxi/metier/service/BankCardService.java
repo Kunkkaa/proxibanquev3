@@ -30,4 +30,9 @@ public class BankCardService {
 	public void delete(Integer id) {
 		this.daoCard.delete(id);
 	}
+
+
+	public BankCard read(Integer id) {
+		return this.daoCard.read(id);
+	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
+import fr.formation.proxi.metier.entity.BankCard;
 import fr.formation.proxi.metier.entity.CurrentAccount;
 import fr.formation.proxi.metier.entity.SavingsAccount;
 import fr.formation.proxi.persistance.AccountDao;
@@ -94,4 +95,8 @@ public class AccountService {
 	public AccountDao getDao() {
 		return this.accountDao;
 	}
+
+	//public void update(BankCard newCard) {
+		//this.accountDao.update(newCard);
+	//}
 }
