@@ -8,12 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-
-@Table(name = "check")
-
-
-
+@Table(name = "cheque")
 public class Check {
+	
+	
 	@Id
 	// On précise que l'identifiant est une valeur générée par Auto-Increment.
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

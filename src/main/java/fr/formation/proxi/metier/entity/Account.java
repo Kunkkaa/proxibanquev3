@@ -111,9 +111,6 @@ public class Account {
 	}
 
 
-
-
-
 	public Account() {
 		this.balance = 0F;
 	}

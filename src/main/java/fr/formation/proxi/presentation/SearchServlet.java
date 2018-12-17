@@ -27,7 +27,6 @@ public class SearchServlet extends HttpServlet{
 		.forward(req, resp);
 		
 		
-		
 	
 	}
 	
@@ -39,6 +38,7 @@ public class SearchServlet extends HttpServlet{
 		String lastname = mot[1];
 		String firstname = mot[0];
 		System.out.println(firstname + lastname);
+		
 		Client client = ClientService.getInstance().check(firstname, lastname);
 		if ( client == null ) {
 			
