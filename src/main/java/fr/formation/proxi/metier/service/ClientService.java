@@ -89,6 +89,10 @@ public class ClientService {
 	public Client read(Integer id) {
 		return this.daoClient.read(id);
 	}
+	
+	public Client check(String firstname , String lastname) {
+		return this.daoClient.check(firstname, lastname);
+	}
 
 	/**
 	 * Permet de mettre � jour les informations d'un client. Cette m�thode g�re

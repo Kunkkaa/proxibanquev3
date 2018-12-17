@@ -31,6 +31,9 @@ public class ClientDao extends AbstractDao<Client> {
 	public Client read(Integer id) {
 		return this.read(id, new Client());
 	}
+	
+	
+	
 
 	/**
 	 * {@inheritDoc} <br>
@@ -45,5 +48,19 @@ public class ClientDao extends AbstractDao<Client> {
 		clients.addAll(query.getResultList());
 		return clients;
 	}
+	
+	
+	public Client check(String firstname , String lastname) {
+		Client client = new Client();
+		TypedQuery<Client> query = this.em
+				.createQuery(JpqlQueries.SELECT_CLIENT, Client.class);
+		query.setParameter("firstname",firstname);
+		query.setParameter("lastname",lastname);
+			client = query.getSingleResult();
+		return client;
+	}
+	
+	
+	
 
 }
