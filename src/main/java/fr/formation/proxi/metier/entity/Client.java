@@ -38,8 +38,7 @@ public class Client {
 	private String lastname;
 
 
-	@Column(length = 200)
-	private String address;
+
 	
 	@Column 
 	private String birthDate;
@@ -47,8 +46,9 @@ public class Client {
 	@Column
 	private String number;
 	
-	
-	
+	@OneToOne
+	@JoinColumn(name="id", referencedColumnName="id")
+	private Address address;
 	
 
 	/*
@@ -94,7 +94,7 @@ public class Client {
 	}
 
 	public Client(String firstname, String lastname, String email,
-			String address) {
+			Address address) {
 		this();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -102,13 +102,13 @@ public class Client {
 	}
 
 	public Client(Integer id, String firstname, String lastname, String email,
-			String address) {
+			Address address) {
 		this(firstname, lastname, email, address);
 		this.id = id;
 	}
 
 	public Client(Integer id, String firstname, String lastname, String email,
-			String address, List<Account> accounts) {
+			Address address, List<Account> accounts) {
 		this(id, firstname, lastname, email, address);
 		this.accounts = accounts;
 	}
@@ -140,11 +140,11 @@ public class Client {
 
 
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 

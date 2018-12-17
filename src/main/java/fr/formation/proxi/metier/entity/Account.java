@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -63,13 +65,19 @@ public class Account {
 	 */
 	private String label;
 	
+	@OneToOne 
 	
-	public Account(Integer id, String number, String openingDate, String label, Float balance) {
+	@JoinColumn(name="check_id" ,referencedColumnName="id")
+	private Check check;
+	
+	
+	public Account(Integer id, String number, String openingDate, String label, Float balance , Check check) {
 		this.id = id;
 		this.number = number;
 		this.openingDate = openingDate;
 		this.label = label;
 		this.balance = balance;
+		this.check = check;
 	}
 	
 	
@@ -77,6 +85,18 @@ public class Account {
 	public String getOpeningDate() {
 		return openingDate;
 	}
+
+	public Check getCheck() {
+		return check;
+	}
+
+
+
+	public void setCheck(Check check) {
+		this.check = check;
+	}
+
+
 
 	public void setOpeningDate(String openingDate) {
 		this.openingDate = openingDate;

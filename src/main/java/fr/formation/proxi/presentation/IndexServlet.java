@@ -51,11 +51,11 @@ public class IndexServlet extends HttpServlet {
 			req.getSession().setAttribute("advisor", advisor);
 		}
 		String advisorName = req.getUserPrincipal().getName();
-		AdvisorService advisorService = AdvisorService.getInstance();
-		Integer advisorId = advisorService.getAdvisorIdByName(advisorName);
-		List<Client> clients = advisorService.getClientsByAdvisorId(advisorId); 
+		// AdvisorService advisorService = AdvisorService.getInstance();
+		// Integer advisorId = advisorService.getAdvisorIdByName(advisorName);
+		// List<Client> clients = advisorService.getClientsByAdvisorId(advisorId); 
 		
-		req.setAttribute("clients", clients);
+		// req.setAttribute("clients", clients);
 		logger.info("Liste des clients chargée");
 
 		// On continue avec la page JSP.

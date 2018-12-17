@@ -1,26 +1,50 @@
 package fr.formation.proxi.metier.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+
+@Table(name= "address" )
+
+
+
+
+
 public class Address {
 	
+	@Id
+	// On précise que l'identifiant est une valeur générée par Auto-Increment.
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	
-	private String number; 
+	private Integer id;
 	
+	@Column
 	private String field1;
 	
+	@Column
 	private String field2;
 	
+	@Column
 	private String town;
 	
+	@Column
 	private String porstalCode;
 	
-	private String Country;
+	@Column
+	private String country;
 	
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
+	
+	
+	
+	
+	public Address(){
+		
 	}
 
 	public String getField1() {
@@ -56,20 +80,19 @@ public class Address {
 	}
 
 	public String getCountry() {
-		return Country;
+		return country;
 	}
 
 	public void setCountry(String country) {
-		Country = country;
+		this.country = country;
 	}
 
-	public Address(String number, String field1, String field2, String town, String porstalCode, String country) {
-		this.number = number;
+	public Address( String field1, String field2, String town, String porstalCode, String country) {
 		this.field1 = field1;
 		this.field2 = field2;
 		this.town = town;
 		this.porstalCode = porstalCode;
-		Country = country;
+		this.country = country;
 	}
 
 	
