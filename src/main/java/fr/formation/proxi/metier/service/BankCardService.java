@@ -23,8 +23,8 @@ public class BankCardService {
 	}
 
 	
-	public BankCard create(String number, String type) {
-		return this.daoCard.create(new BankCard(number, type));
+	public BankCard create(String number, Boolean isElectron) {
+		return this.daoCard.create(new BankCard(number, isElectron));
 	}
 
 	public void delete(Integer id) {

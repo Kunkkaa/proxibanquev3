@@ -13,5 +13,5 @@ public class JpqlQueries {
 	public static final String SELECT_ALL_ACCOUNT = "SELECT a FROM Account a";
 	public static final String SELECT_ALL_ADVISOR = "SELECT a FROM Advisor a";
 	public static final String SELECT_ADVISOR_BY_NAME = "SELECT a FROM Advisor a WHERE a.username=:username";
-	public static final String SELECT_ALL_BANKCARD = "SELECT bc FROM BankCard bc";
+	public static final String SELECT_BANKCARD = "SELECT bc FROM BankCard bc";
 }

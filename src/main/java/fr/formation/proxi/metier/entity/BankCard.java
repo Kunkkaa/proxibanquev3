@@ -20,14 +20,14 @@ public class BankCard {
 	private String number;
 	
 	@Column
-	private String type;
+	private Boolean isElectron;
 	
 	public BankCard() {
 	}
 	
-	public BankCard(String number, String type) {
+	public BankCard(String number, Boolean isElectron) {
 		this.number = number;
-		this.type = type;
+		this.isElectron = isElectron;
 	}
 
 	public Integer getId() {
@@ -46,12 +46,14 @@ public class BankCard {
 		this.number = number;
 	}
 
-	public String getType() {
-		return type;
+	public Boolean getIsElectron() {
+		return isElectron;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setIsElectron(Boolean isElectron) {
+		this.isElectron = isElectron;
 	}
+
+
 	
 }

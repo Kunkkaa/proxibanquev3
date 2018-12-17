@@ -25,7 +25,7 @@ public class DeleteCardServlet extends HttpServlet {
 		Client client = ClientService.getInstance().read(id);
 		if (client.getCard() != null) {
 			Integer cardId = client.getCard().getId(); 
-			client.setCard(null);
+		client.setCard(null);
 			ClientService.getInstance().update(client);
 			BankCardService.getInstance().delete(cardId);
 		} else {

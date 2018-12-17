@@ -30,7 +30,7 @@ public class BankCardDao extends AbstractDao<BankCard> {
 	public List<BankCard> readAll() {
 		List<BankCard> cards = new ArrayList<>();
 		TypedQuery<BankCard> query = this.em
-				.createQuery(JpqlQueries.SELECT_ALL_BANKCARD, BankCard.class);
+				.createQuery(JpqlQueries.SELECT_BANKCARD, BankCard.class);
 		cards.addAll(query.getResultList());
 		return cards;
 	}

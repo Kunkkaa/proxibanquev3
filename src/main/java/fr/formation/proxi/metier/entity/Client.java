@@ -76,18 +76,6 @@ public class Client {
 	private List<Account> accounts;
 	
 	
-	@OneToOne
-	// Pour un OneToOne avec Hibernate 5 et MySQL 8 la clé étrangère sera dans la table client.
-	@JoinColumn(name="card_id", referencedColumnName="id")
-	private BankCard card;
-
-	public BankCard getCard() {
-		return card;
-	}
-
-	public void setCard(BankCard card) {
-		this.card = card;
-	}
 
 	public Client() {
 		this.accounts = new ArrayList<>();

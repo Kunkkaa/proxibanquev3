@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import fr.formation.proxi.metier.entity.Client;
-import fr.formation.proxi.metier.service.AdvisorService;
 
 /**
  * Classe permettant de gerer l'affichage de l'ecran d'accueil en chargeant la
