@@ -20,7 +20,7 @@
 		packages Java ils s'imbriquent les uns dans les autres. -->
 	<groupId>fr.formation</groupId>
 	<!-- Nom du projet unique dans son groupe. -->
-	<artifactId>proxibanquev2</artifactId>
+	<artifactId>proxibanquev3-Omar-Bich</artifactId>
 	<!-- Version actuelle du projet. Il doit toujours il y avoir une version 
 		pour un projet Maven. -->
 	<version>0.0.1</version>

@@ -45,12 +45,54 @@ public class Account {
 	 */
 	@Column
 	private String number;
-
+	
 	/**
 	 * Stockage du solde actuel de ce compte en euros.
 	 */
 	@Column
 	private Float balance;
+	
+	/**
+	 * Date d'ouverture Client 
+	 */
+	
+	private String openingDate;
+	
+	/**
+	 * Libellé de compte
+	 */
+	private String label;
+	
+	
+	public Account(Integer id, String number, String openingDate, String label, Float balance) {
+		this.id = id;
+		this.number = number;
+		this.openingDate = openingDate;
+		this.label = label;
+		this.balance = balance;
+	}
+	
+	
+
+	public String getOpeningDate() {
+		return openingDate;
+	}
+
+	public void setOpeningDate(String openingDate) {
+		this.openingDate = openingDate;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+
+
+
 
 	public Account() {
 		this.balance = 0F;

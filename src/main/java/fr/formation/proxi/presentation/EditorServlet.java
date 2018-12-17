@@ -62,7 +62,6 @@ public class EditorServlet extends HttpServlet {
 		client.setLastname(lastname);
 		client.setFirstname(firstname);
 		client.setAddress(address);
-		client.setEmail(email);
 		// Et on termine par appeler le service pour aller mettre à jour tout
 		// l'objet client avec ses informations (et ses comptes !) en base de
 		// données.

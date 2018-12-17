@@ -37,11 +37,19 @@ public class Client {
 	@Column
 	private String lastname;
 
-	@Column
-	private String email;
 
 	@Column(length = 200)
 	private String address;
+	
+	@Column 
+	private String birthDate;
+	
+	@Column
+	private String number;
+	
+	
+	
+	
 
 	/*
 	 * Déclaration d'une relation de Client 0/1 -> 0/n Account côté Java.
@@ -90,7 +98,6 @@ public class Client {
 		this();
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.email = email;
 		this.address = address;
 	}
 
@@ -130,13 +137,8 @@ public class Client {
 		this.lastname = lastname;
 	}
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+
 
 	public String getAddress() {
 		return address;
