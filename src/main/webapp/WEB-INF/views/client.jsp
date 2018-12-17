@@ -35,7 +35,6 @@
 </head>
 
 <body id="page-top">
-	<jsp:include page="/WEB-INF/views/advisor.jsp" />
 	<!-- Header -->
 	<header class="masthead">
 		<div class="container">
@@ -71,14 +70,14 @@
 						</tr>
 						<c:forEach var="currentAccount" items="${currentAccounts }">
 							<tr class="data">
-								<c:if test="${currentAccount.bankcard.isElectron}">
+								<c:if test="${currentAccount.card.isElectron}">
 									<h2>Votre carte est une Electron</h2>
 								</c:if>
 
-								<c:if test="${currentAccount.bankcard.isElectron}">
+								<c:if test="${currentAccount.card.isElectron}">
 									<h2>Votre carte est une Premier</h2>
 								</c:if>
-								<td>${currentAccount.number}</td>
+								<td>${currentAccount.card.number}</td>
 								<td class="balance">${currentAccount.balance}</td>
 							</tr>
 						</c:forEach>

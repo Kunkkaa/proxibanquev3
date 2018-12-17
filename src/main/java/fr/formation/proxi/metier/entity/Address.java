@@ -34,7 +34,7 @@ public class Address {
 	private String town;
 	
 	@Column
-	private String porstalCode;
+	private String postalCode;
 	
 	@Column
 	private String country;
@@ -71,12 +71,12 @@ public class Address {
 		this.town = town;
 	}
 
-	public String getPorstalCode() {
-		return porstalCode;
+	public String getpostalCode() {
+		return postalCode;
 	}
 
-	public void setPorstalCode(String porstalCode) {
-		this.porstalCode = porstalCode;
+	public void setpostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 
 	public String getCountry() {
@@ -87,11 +87,11 @@ public class Address {
 		this.country = country;
 	}
 
-	public Address( String field1, String field2, String town, String porstalCode, String country) {
+	public Address( String field1, String field2, String town, String postalCode, String country) {
 		this.field1 = field1;
 		this.field2 = field2;
 		this.town = town;
-		this.porstalCode = porstalCode;
+		this.postalCode = postalCode;
 		this.country = country;
 	}
 

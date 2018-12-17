@@ -3,6 +3,7 @@ package fr.formation.proxi.persistance;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import fr.formation.proxi.metier.entity.Client;
@@ -17,11 +18,11 @@ import fr.formation.proxi.metier.entity.Client;
 public class ClientDao extends AbstractDao<Client> {
 
 	private static final ClientDao INSTANCE = new ClientDao();
-	
+
 	public static ClientDao getInstance() {
 		return ClientDao.INSTANCE;
 	}
-	
+
 	/**
 	 * {@inheritDoc} <br>
 	 * <br>
@@ -31,9 +32,6 @@ public class ClientDao extends AbstractDao<Client> {
 	public Client read(Integer id) {
 		return this.read(id, new Client());
 	}
-	
-	
-	
 
 	/**
 	 * {@inheritDoc} <br>
@@ -43,24 +41,23 @@ public class ClientDao extends AbstractDao<Client> {
 	@Override
 	public List<Client> readAll() {
 		List<Client> clients = new ArrayList<>();
-		TypedQuery<Client> query = this.em
-				.createQuery(JpqlQueries.SELECT_ALL_CLIENT, Client.class);
+		TypedQuery<Client> query = this.em.createQuery(JpqlQueries.SELECT_ALL_CLIENT, Client.class);
 		clients.addAll(query.getResultList());
 		return clients;
 	}
-	
-	
-	public Client check(String firstname , String lastname) {
+
+	public Client check(String firstname, String lastname) {
 		Client client = new Client();
-		TypedQuery<Client> query = this.em
-				.createQuery(JpqlQueries.SELECT_CLIENT, Client.class);
-		query.setParameter("firstname",firstname);
-		query.setParameter("lastname",lastname);
+		try {
+			TypedQuery<Client> query = this.em.createQuery(JpqlQueries.SELECT_CLIENT, Client.class);
+			query.setParameter("firstname", firstname);
+			query.setParameter("lastname", lastname);
 			client = query.getSingleResult();
+		} catch (PersistenceException e) {
+			client = null;
+		}
+
 		return client;
 	}
-	
-	
-	
 
 }

@@ -40,20 +40,36 @@ public class SearchServlet extends HttpServlet{
 		System.out.println(firstname + lastname);
 		
 		Client client = ClientService.getInstance().check(firstname, lastname);
-		if ( client == null ) {
+		if ( client != null ) {
 			
-			this.getServletContext()
-			.getRequestDispatcher("/WEB-INF/views/error.jsp")
-			.forward(req, resp);
 			
-		} else {
 			Integer Id = client.getId();
 			System.out.println(Id);
-			this.getServletContext()
-			.getRequestDispatcher("/WEB-INF/views/client.jsp")
-			.forward(req, resp);
+			resp.sendRedirect(
+					this.getServletContext().getContextPath() + "/client.html?id="+Id);
 			
-		}
+			
+			
+		} else {
+			String temp;
+			temp = firstname;
+			firstname = lastname;
+			lastname = temp;
+			client = ClientService.getInstance().check(firstname, lastname);
+			if(client == null) {
+				this.getServletContext()
+				.getRequestDispatcher("/WEB-INF/views/error.jsp")
+				.forward(req, resp);
+			}else {
+				Integer Id = client.getId();
+				resp.sendRedirect(
+						this.getServletContext().getContextPath() + "/client.html?id="+Id);
+			}
+			
+	
+
+			
+		} 
 		
 		
 		

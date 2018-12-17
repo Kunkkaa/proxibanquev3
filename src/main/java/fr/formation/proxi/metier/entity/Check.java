@@ -1,5 +1,7 @@
 package fr.formation.proxi.metier.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class Check {
 	private String sendDate;
 	
 	@Column
-	private String receptionDate;
+	private LocalDate receptionDate;
 	
 	
 	
@@ -47,15 +49,15 @@ public class Check {
 		this.sendDate = sendDate;
 	}
 
-	public String getreceptionDate() {
+	public LocalDate getreceptionDate() {
 		return receptionDate;
 	}
 
-	public void setreceptionDate(String receptionDate) {
+	public void setreceptionDate(LocalDate receptionDate) {
 		this.receptionDate = receptionDate;
 	}
 
-	public Check(Integer id, String sendDate, String receptionDate) {
+	public Check(Integer id, String sendDate, LocalDate receptionDate) {
 		this.id = id;
 		this.sendDate = sendDate;
 		this.receptionDate = receptionDate;

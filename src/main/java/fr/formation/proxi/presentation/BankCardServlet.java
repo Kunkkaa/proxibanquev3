@@ -52,16 +52,17 @@ public class BankCardServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		Integer id = Integer.parseInt(req.getParameter("id"));
-		String number = req.getParameter("number");
-		String type = req.getParameter("type");
-		
-		// TODO mettre le bon type
-		BankCard newCard = BankCardService.getInstance().create(number, true);
-		CurrentAccount account = (CurrentAccount) AccountService.getInstance().getAll(id);
-		account.setCard(newCard);
-		AccountService.getInstance().update(newCard);
-
-		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
-	}
+//		Integer id = Integer.parseInt(req.getParameter("id"));
+//		String number = req.getParameter("number");
+//		String type = req.getParameter("type");
+//		
+//		// TODO mettre le bon type
+//		BankCard newCard = BankCardService.getInstance().create(number, true);
+//		CurrentAccount account = (CurrentAccount) AccountService.getInstance().getAll(id);
+//		account.setCard(newCard);
+//		AccountService.getInstance().update(newCard);
+//
+//		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
+//	}
+}
 }
