@@ -14,7 +14,7 @@ public class CurrentAccount extends Account {
 	@JoinColumn(name="card_id", referencedColumnName="id")
 	private BankCard card;
 
-	public CurrentAccount() {
+	public CurrentAccount() { 
 		
 	}
 	

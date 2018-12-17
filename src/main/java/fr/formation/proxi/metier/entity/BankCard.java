@@ -1,5 +1,7 @@
 package fr.formation.proxi.metier.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +23,9 @@ public class BankCard {
 	
 	@Column
 	private Boolean isElectron;
+	
+	@Column
+	private LocalDate expirationDate;
 	
 	public BankCard() {
 	}

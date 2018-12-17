@@ -92,6 +92,14 @@ public class AccountService {
 		return CurrentAccounts;
 	}
 
+	public void withdrawCash(float montant ) {
+		
+		
+		
+		
+	}
+	
+	
 	public AccountDao getDao() {
 		return this.accountDao;
 	}

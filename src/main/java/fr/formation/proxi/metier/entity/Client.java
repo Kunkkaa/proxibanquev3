@@ -41,7 +41,7 @@ public class Client {
 
 	
 	@Column 
-	private String birthDate;
+	private String birthdate;
 	
 	@Column
 	private String number;
@@ -99,6 +99,38 @@ public class Client {
 			Address address, List<Account> accounts) {
 		this(id, firstname, lastname, email, address);
 		this.accounts = accounts;
+	}
+
+	
+	
+	
+	public Client(Integer id, String firstname, String lastname, String birthdate, String number, Address address,
+			List<Account> accounts) {
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.birthdate = birthdate;
+		this.number = number;
+		this.address = address;
+		this.accounts = accounts;
+	}
+
+	
+	
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public Integer getId() {

@@ -65,14 +65,27 @@
     <servlet-name>EditorServlet</servlet-name>
     <url-pattern>/modify.html</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>AccountServlet</servlet-name>
-    <servlet-class>fr.formation.proxi.presentation.AccountServlet</servlet-class>
+  
+    <servlet>
+    <servlet-name>ClientServlet</servlet-name>
+    <servlet-class>fr.formation.proxi.presentation.ClientServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AccountServlet</servlet-name>
-    <url-pattern>/account.html</url-pattern>
+    <servlet-name>ClientServlet</servlet-name>
+    <url-pattern>/client.html</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  
+<!--   <servlet> -->
+<!--     <servlet-name>AccountServlet</servlet-name> -->
+<!--     <servlet-class>fr.formation.proxi.presentation.AccountServlet</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>AccountServlet</servlet-name> -->
+<!--     <url-pattern>/account.html</url-pattern> -->
+<!--   </servlet-mapping> -->
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/views/error.jsp</location>

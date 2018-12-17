@@ -41,7 +41,7 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer id;
-
+ 
 	/**
 	 * Identifiant meier, numero du compte sur 9 chiffres.
 	 */
