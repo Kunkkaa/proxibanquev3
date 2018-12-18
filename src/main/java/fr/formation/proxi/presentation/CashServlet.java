@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.formation.proxi.metier.entity.Account;
-import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.service.AccountService;
 import fr.formation.proxi.metier.service.ClientService;
 
