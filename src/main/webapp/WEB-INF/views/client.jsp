@@ -94,13 +94,15 @@
 								</div>
 								<div>
 									<div>
-										<a href="card.html?id=${client.id}&accountId=${currentAccount.id}">
+										<a
+											href="card.html?id=${client.id}&accountId=${currentAccount.id}">
 											<button class="button">Commander Carte</button>
 										</a>
 									</div>
 								</div>
 								<div>
-									<a href="cash.html?id=${client.id}&accountId=${currentAccount.id}">
+									<a
+										href="cash.html?id=${client.id}&accountId=${currentAccount.id}">
 										<button class="button">Faire un retrait Cash</button>
 									</a>
 								</div>
@@ -150,7 +152,8 @@
 									</a>
 								</div>
 								<div>
-									<a href="cash.html?id=${client.id}&accountId=${savingAccount.id}">
+									<a
+										href="cash.html?id=${client.id}&accountId=${savingAccount.id}">
 										<button class="button">Faire un retrait Cash</button>
 									</a>
 								</div>
@@ -172,123 +175,128 @@
 
 
 
-	
-
-	<!-- Affichage des clients -->
-	<section id="clients-display">
-		<h1 class="page-title">Voici vos Informations</h1>
-		<div class="client-display">
-			<div class="client-container">
-				<div class="client-contain">
-					<p class="name">${client.firstname}${client.lastname}</p>
-
-					<p class="text">${client.birthdate}</p>
-
-					<p class="text">${client.address.field1}</p>
-
-					<p class="text">${client.address.town}</p>
-
-					<p class="text">${client.address.postalCode}</p>
-
-					<p class="text">${client.address.country}</p>
 
 
+		<!-- Affichage des clients -->
+		<section id="clients-display">
+			<h1 class="page-title">Voici vos Informations</h1>
+			<div class="client-display">
+				<div class="client-container">
+					<div class="client-contain">
+						<p class="name">${client.firstname}${client.lastname}</p>
+
+						<p class="text">${client.birthdate}</p>
+
+						<p class="text">${client.address.field1}</p>
+
+						<p class="text">${client.address.town}</p>
+
+						<p class="text">${client.address.postalCode}</p>
+
+						<p class="text">${client.address.country}</p>
+
+
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- Team -->
+		<section class="bg-light" id="team">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading text-uppercase">Sexy &amp;
+							Chocolat Dream Team</h2>
+						<h3 class="section-subheading text-muted">Découvrez notre
+							superbe équipe !</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="team-member">
+							<img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
+							<h4>Omar Boughanem</h4>
+							<p class="text-muted">Developpeur</p>
+							<ul class="list-inline social-buttons">
+								<li class="list-inline-item"><a href="#"> <i
+										class="fab fa-twitter"></i>
+								</a></li>
+								<li class="list-inline-item"><a href="#"> <i
+										class="fab fa-facebook-f"></i>
+								</a></li>
+								<li class="list-inline-item"><a href="#"> <i
+										class="fab fa-linkedin-in"></i>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="team-member">
+							<img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
+							<h4>Bixente Olasaguirre</h4>
+							<p class="text-muted">Developpeur</p>
+							<ul class="list-inline social-buttons">
+								<li class="list-inline-item"><a href="#"> <i
+										class="fab fa-twitter"></i>
+								</a></li>
+								<li class="list-inline-item"><a href="#"> <i
+										class="fab fa-facebook-f"></i>
+								</a></li>
+								<li class="list-inline-item"><a href="#"> <i
+										class="fab fa-linkedin-in"></i>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-8 mx-auto text-center">
+						<p class="large text-muted">Notre team est à votre écoute,
+							n'hésitez pas à nous contacter.</p>
+					</div>
 				</div>
 			</div>
+		</section>
 
-		</div>
-	</section>
-
-	<!-- Team -->
-	<section class="bg-light" id="team">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading text-uppercase">Sexy &amp; Chocolat
-						Dream Team</h2>
-					<h3 class="section-subheading text-muted">Découvrez notre
-						superbe équipe !</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="team-member">
-						<img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-						<h4>Omar Boughanem</h4>
-						<p class="text-muted">Developpeur</p>
-						<ul class="list-inline social-buttons">
-							<li class="list-inline-item"><a href="#"> <i
-									class="fab fa-twitter"></i>
-							</a></li>
-							<li class="list-inline-item"><a href="#"> <i
-									class="fab fa-facebook-f"></i>
-							</a></li>
-							<li class="list-inline-item"><a href="#"> <i
-									class="fab fa-linkedin-in"></i>
-							</a></li>
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<span class="copyright">Copyright &copy; Proxibanque 2018</span>
+					</div>
+					<div class="col-md-4">
+						<ul class="list-inline quicklinks">
+							<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+							<li class="list-inline-item"><a href="#">Terms of Use</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-sm-4">
-					<div class="team-member">
-						<img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-						<h4>Bixente Olasaguirre</h4>
-						<p class="text-muted">Developpeur</p>
-						<ul class="list-inline social-buttons">
-							<li class="list-inline-item"><a href="#"> <i
-									class="fab fa-twitter"></i>
-							</a></li>
-							<li class="list-inline-item"><a href="#"> <i
-									class="fab fa-facebook-f"></i>
-							</a></li>
-							<li class="list-inline-item"><a href="#"> <i
-									class="fab fa-linkedin-in"></i>
-							</a></li>
-						</ul>
-					</div>
-				</div>
 			</div>
+		</footer>
 
-			<div class="row">
-				<div class="col-lg-8 mx-auto text-center">
-					<p class="large text-muted">Notre team est à votre écoute,
-						n'hésitez pas à nous contacter.</p>
-				</div>
-			</div>
+		<div class="footer-button">
+			<a href="/proxibanquev3/search.html">
+				<button class="button">Retour à l'accueil Utilisateur</button>
+			</a>
 		</div>
-	</section>
 
-	<!-- Footer -->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<span class="copyright">Copyright &copy; Proxibanque 2018</span>
-				</div>
-				<div class="col-md-4">
-					<ul class="list-inline quicklinks">
-						<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-						<li class="list-inline-item"><a href="#">Terms of Use</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
+		<!-- Bootstrap core JavaScript -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- Plugin JavaScript -->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-	<!-- Plugin JavaScript -->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Contact form JavaScript -->
+		<script src="js/jqBootstrapValidation.js"></script>
+		<script src="js/contact_me.js"></script>
 
-	<!-- Contact form JavaScript -->
-	<script src="js/jqBootstrapValidation.js"></script>
-	<script src="js/contact_me.js"></script>
-
-	<!-- Custom scripts for this template -->
-	<script src="js/agency.min.js"></script>
-
+		<!-- Custom scripts for this template -->
+		<script src="js/agency.min.js"></script>
 </body>
 
 </html>

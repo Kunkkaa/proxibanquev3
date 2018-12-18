@@ -12,11 +12,12 @@ import fr.formation.proxi.metier.service.ChequeStatus;
 
 @Path("/check")
 public class ChequeBookWebService {
-	
-	
+
+
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
+
     @Consumes(MediaType.APPLICATION_JSON)
 	
 	public ChequeStatus status(Account account) {
