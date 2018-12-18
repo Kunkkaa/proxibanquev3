@@ -36,7 +36,7 @@
 	<h1 class="page-title">Erreur : impossible de faire un virement pour un client qui n'a aucun ou un seul compte.</h1>
 
 	<div class="transfer-button">
-		<a href="/search.html">
+		<a href="/proxibanquev3/client.html?id=${clientId}">
 			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>

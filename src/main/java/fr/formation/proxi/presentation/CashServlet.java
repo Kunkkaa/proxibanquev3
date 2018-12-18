@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.formation.proxi.metier.entity.Account;
+import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.service.AccountService;
 import fr.formation.proxi.metier.service.ClientService;
 
-public class WithdrawalServlet extends HttpServlet {
+public class CashServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private AccountService accS = AccountService.getInstance();
@@ -23,7 +24,7 @@ public class WithdrawalServlet extends HttpServlet {
 		
 		Account account = AccountService.getInstance().read(id);
 		
-		req.setAttribute("accounts", account);
+		//req.setAttribute("accounts", account);
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/cash.jsp").forward(req, resp);
 	}
@@ -33,8 +34,12 @@ public class WithdrawalServlet extends HttpServlet {
 
 		Integer accountId = Integer.parseInt(req.getParameter("id"));
 		Float val = Float.parseFloat(req.getParameter("value"));
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		
+		Client client = ClientService.getInstance().read(id);
 
 		Boolean withdrawOK = ClientService.getInstance().withdrawCash(val, accountId);
+		req.setAttribute("client", client);
 
 		if (!withdrawOK) {
 			req.setAttribute("withdrawRate", withdrawOK);

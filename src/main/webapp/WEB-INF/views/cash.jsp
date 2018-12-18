@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,37 +40,25 @@
 
 
 	<c:if test="${not empty withdrawRate}">
-		<h1 class="page-title">Erreur : Le compte à debiter aura un solde
-			negatif avec le montant renseigné</h1>
+		<h1 class="page-title">Erreur : Le retrait est impossible</h1>
 	</c:if>
-
+	
+<form method="post" action="">
 	<div class="centered-input">
 		<div>
-			<label for="value" class="text"> Montant du retrait : </label> <input
-				type="number" step=0.01 name="value" id="value"
-				style="margin-left: 0.5em;">
+			<label for="value" class="text"> Montant du retrait : </label> 
+			<input type="number" step=0.1 name="value" id="value" style="margin-left: 0.5em;">
 			<button style="margin-left: 2em;" class="button">Confirmer</button>
 		</div>
 	</div>
-
+</form>
 
 
 	<div class="footer-button">
-		<a href="/client.html?id=${client.id}">
+		<a href="/proxibanquev3/client.html?id=${client.id}">
 			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>
-
-
-
-
-
-	<div class="transfer-button">
-		<a href="/client.html?id=${client.id}">
-			<button class="button">Retour à l'accueil</button>
-		</a>
-	</div>
-
 
 </body>
 </html>

@@ -80,7 +80,7 @@
 							<div class="button-container">
 
 								<div>
-									<a href="transfer.html?id=${currentAccount.id}">
+									<a href="transfer.html?id=${client.id}">
 										<button class="button">Virement</button>
 									</a>
 								</div>
@@ -92,7 +92,7 @@
 									</div>
 								</div>
 								<div>
-									<a href="cash.html?id=${currentAccount.id}/${client.id}">
+									<a href="cash.html?id=${currentAccount.id}">
 										<button class="button">Faire un retrait Cash</button>
 									</a>
 								</div>
@@ -134,7 +134,7 @@
 							<div class="button-container">
 
 								<div>
-									<a href="transfer.html?id=${savingAccount.id}">
+									<a href="transfer.html?id=${client.id}">
 										<button class="button">Virement</button>
 									</a>
 								</div>
@@ -187,12 +187,6 @@
 
 		</div>
 	</section>
-
-	<div class="footer-button">
-		<a href="index.html">
-			<button class="button">Retour à l'accueil</button>
-		</a>
-	</div>
 
 	<!-- Team -->
 	<section class="bg-light" id="team">
