@@ -6,6 +6,7 @@ import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.entity.BankCard;
+import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.entity.CurrentAccount;
 import fr.formation.proxi.metier.entity.SavingsAccount;
 import fr.formation.proxi.persistance.AccountDao;
@@ -97,6 +98,7 @@ public class AccountService {
 		return CurrentAccounts;
 	}
 
+
 	public boolean newCard(Integer accountId, String type) {
 		boolean resultOk = true;
 		CurrentAccount account = (CurrentAccount) this.accountDao.read(accountId);
@@ -145,11 +147,15 @@ public class AccountService {
 
 	}
 
+
 	public AccountDao getDao() {
 		return this.accountDao;
 	}
 
-	// public void update(BankCard newCard) {
-	// this.accountDao.update(newCard);
-	// }
+
+	
+	public Account read(Integer id) {
+		return this.accountDao.read(id);
+	}
+
 }

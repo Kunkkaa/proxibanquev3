@@ -94,7 +94,7 @@
 			</div>
 		</c:if>
 		<div class="footer-button">
-			<a href="index.html">
+			<a href="/client.html?id=${client.id}">
 				<button class="button">Retour à l'accueil</button>
 			</a>
 		</div>
