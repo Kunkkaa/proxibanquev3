@@ -62,7 +62,7 @@ public class BankCardServlet extends HttpServlet {
 		
 		if(a) {
 			
-			resp.sendRedirect(this.getServletContext().getContextPath()+"/search.html?id="+idClient);
+			resp.sendRedirect(this.getServletContext().getContextPath()+"/client.html?id="+idClient);
 
 			
 		} else {

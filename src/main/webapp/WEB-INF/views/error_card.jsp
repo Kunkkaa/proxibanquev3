@@ -37,7 +37,7 @@
 	<h1 class="page-title">Erreur : impossible de créer la carte. Veuillez vous adressez à votre conseiller</h1>
 
 	<div class="transfer-button">
-		<a href="/client.html?id=${idclient}">
+		<a href="/proxibanquev3/client.html?id=${idclient}">
 			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>

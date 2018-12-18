@@ -45,8 +45,6 @@
 			</div>
 			<div class="buttons">
 				<button class="button">Valider</button>
-				<button class="button">Retour à l'accueil</button>
-
 			</div>
 		</form>
 	</div>

@@ -7,16 +7,6 @@
 	<display-name>ProxibanqueSIV2</display-name>
 
 	<servlet>
-		<servlet-name>Servlet de déconnexion</servlet-name>
-		<servlet-class>fr.formation.proxi.presentation.LogoutServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>Servlet de déconnexion</servlet-name>
-		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>Servlet pour l'ajout de carte</servlet-name>
 		<servlet-class>fr.formation.proxi.presentation.BankCardServlet</servlet-class>
 	</servlet>
@@ -24,26 +14,6 @@
 	<servlet-mapping>
 		<servlet-name>Servlet pour l'ajout de carte</servlet-name>
 		<url-pattern>/card.html</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>Servlet pour la suppression de carte</servlet-name>
-		<servlet-class>fr.formation.proxi.presentation.DeleteCardServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>Servlet pour la suppression de carte</servlet-name>
-		<url-pattern>/delete_card.html</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>IndexServlet</servlet-name>
-		<servlet-class>fr.formation.proxi.presentation.IndexServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>IndexServlet</servlet-name>
-		<url-pattern>/index.html</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -84,15 +54,6 @@
 		<url-pattern>/search.html</url-pattern>
 	</servlet-mapping>
 
-
-	<servlet>
-		<servlet-name>EditorServlet</servlet-name>
-		<servlet-class>fr.formation.proxi.presentation.EditorServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>EditorServlet</servlet-name>
-		<url-pattern>/modify.html</url-pattern>
-	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>ClientServlet</servlet-name>

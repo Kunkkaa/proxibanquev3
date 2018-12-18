@@ -29,19 +29,22 @@
 			<%-- 		action="client.html?id=${client.id} --%>
 
 			<div class="form-group">
-				<label for="type">Type :</label> 
-				<select id="type" name="type">
-					<option  value="MasterCard" > MasterCard </option>
-					<option value="ElectronCard"> ElectronCard </option>
+				<label for="type">Type :</label> <select id="type" name="type">
+					<option value="MasterCard">MasterCard</option>
+					<option value="ElectronCard">ElectronCard</option>
 				</select>
-				</div>
-	
-	<div class="buttons">
-		<button class="button">Valider</button>
-		<button class="button">Retour à l'accueil</button>
+			</div>
 
-	</div>
-	</form>
+			<div class="buttons">
+				<button class="button">Valider</button>
+				<div class="transfer-button">
+					<a href="/proxibanquev3/client.html?id=${idclient}">
+						<button class="button">Retour à l'accueil</button>
+					</a>
+				</div>
+
+			</div>
+		</form>
 	</div>
 </body>
 </html>
