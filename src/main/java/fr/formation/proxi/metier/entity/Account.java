@@ -71,6 +71,7 @@ public class Account {
 	private Check check;
 	
 	
+	
 	public Account(Integer id, String number, String openingDate, String label, Float balance , Check check) {
 		this.id = id;
 		this.number = number;
@@ -111,7 +112,10 @@ public class Account {
 	}
 
 
-
+	public boolean isCurrent(Account account) {
+		
+		return account instanceof CurrentAccount;
+	}
 
 
 	public Account() {
