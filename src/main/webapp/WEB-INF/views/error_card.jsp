@@ -1,13 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Commander une carte bleue</title>
+<title>Erreur transfer</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,19 +31,16 @@
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
 </head>
-</head>
 <body>
-	<h2>Ajout d'une carte bleue pour ${ client.firstname } ${ client.lastname } :</h2>
-	<form action="" method="post">
-		<div class="form-group">
-			<label for="number">NumÃ©ro :</label>
-			<input id="number" name="number" class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="type">Type :</label>
-			<input id="type" name="type" class="form-control">
-		</div>
-		<button class="btn btn-success">Valider</button>
-	</form>
+
+	<section class="head"></section>
+	<h1 class="page-title">Erreur : impossible de créer la carte. Veuillez vous adressez à votre conseiller</h1>
+
+	<div class="transfer-button">
+		<a href="/client.html?id=${idclient}">
+			<button class="button">Retour à l'accueil</button>
+		</a>
+	</div>
 </body>
+
 </html>

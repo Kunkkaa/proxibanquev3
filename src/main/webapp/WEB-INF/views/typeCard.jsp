@@ -27,17 +27,21 @@
 	<div class="form-cont">
 		<form method="post">
 			<%-- 		action="client.html?id=${client.id} --%>
-			<div class="form-group">
-					<label for="type">Type Card</label>
-					<input type="text" id="type" name="type"
-						maxlength="45" class="form-control">
-			</div>
-			<div class="buttons">
-				<button class="button">Valider</button>
-				<button class="button">Retour à l'accueil</button>
 
-			</div>
-		</form>
+			<div class="form-group">
+				<label for="type">Type :</label> 
+				<select id="type" name="type">
+					<option  value="MasterCard" > MasterCard </option>
+					<option value="ElectronCard"> ElectronCard </option>
+				</select>
+				</div>
+	
+	<div class="buttons">
+		<button class="button">Valider</button>
+		<button class="button">Retour à l'accueil</button>
+
+	</div>
+	</form>
 	</div>
 </body>
 </html>

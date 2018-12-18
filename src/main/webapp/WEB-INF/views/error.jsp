@@ -40,7 +40,10 @@
 		</div>
 		
 		<div class="transfer-button">
-			<a href="/proxibanquev3/search.html">
+
+			<a href="search.html">
+
+
 			<button class="button">Retour à l'accueil</button>
 		</a>
 		</div>

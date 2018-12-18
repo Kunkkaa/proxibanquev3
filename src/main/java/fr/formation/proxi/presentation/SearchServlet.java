@@ -25,7 +25,7 @@ public class SearchServlet extends HttpServlet{
 		this.getServletContext()
 		.getRequestDispatcher("/WEB-INF/views/search.jsp")
 		.forward(req, resp);
-		
+		 
 		
 	
 	}
@@ -57,9 +57,13 @@ public class SearchServlet extends HttpServlet{
 			lastname = temp;
 			client = ClientService.getInstance().check(firstname, lastname);
 			if(client == null) {
-				this.getServletContext()
-				.getRequestDispatcher("/WEB-INF/views/error.jsp")
-				.forward(req, resp);
+//				this.getServletContext()
+//				.getRequestDispatcher("/WEB-INF/views/error.jsp")
+//				.forward(req, resp);
+				
+				doGet(req,resp);
+				
+				
 			}else {
 				Integer Id = client.getId();
 				resp.sendRedirect(
