@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Erreur transfer</title>
+<title>Transfert effectue</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,12 +33,42 @@
 </head>
 <body>
 	<section class="head"></section>
-	<h1 class="page-title">Erreur : impossible de faire un virement pour un client qui n'a aucun ou un seul compte.</h1>
+	<h1 class="page-title">Vous souhaitez effectuer un Retrait de
+		liquide</h1>
 
-	<div class="transfer-button">
-		<a href="/search.html">
+
+	<c:if test="${not empty withdrawRate}">
+		<h1 class="page-title">Erreur : Le compte à debiter aura un solde
+			negatif avec le montant renseigné</h1>
+	</c:if>
+
+	<div class="centered-input">
+		<div>
+			<label for="value" class="text"> Montant du retrait : </label> <input
+				type="number" step=0.01 name="value" id="value"
+				style="margin-left: 0.5em;">
+			<button style="margin-left: 2em;" class="button">Confirmer</button>
+		</div>
+	</div>
+
+
+
+	<div class="footer-button">
+		<a href="/client.html?id=${client.id}">
 			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>
+
+
+
+
+
+	<div class="transfer-button">
+		<a href="/client.html?id=${client.id}">
+			<button class="button">Retour à l'accueil</button>
+		</a>
+	</div>
+
+
 </body>
 </html>

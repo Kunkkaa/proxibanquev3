@@ -69,6 +69,9 @@ public class ClientService {
 		} else if (compteDebite.getBalance() - value < 0) {
 			transferOK = false;
 			return transferOK;
+		} else if (value > 900) {
+			transferOK = false;
+			return transferOK;
 		} else {
 			compteCredite.setBalance(compteCredite.getBalance() + value);
 			this.daoAccount.update(compteCredite);
@@ -78,6 +81,27 @@ public class ClientService {
 
 			return transferOK;
 		}
+	}
+	
+	public Boolean withdrawCash(float cash, Integer accountId) {
+		boolean withdrawOK = true;
+		//Client client = this.daoClient.read(clientId);
+		//Account compteDebite = client.getAccountById(debitId);
+		Account compteDebite = this.daoAccount.read(accountId);
+		
+		
+		if (cash > 300) {
+			withdrawOK = false;
+			return withdrawOK;
+		} else if (compteDebite.getBalance() - cash < 0) {
+			withdrawOK = false;
+			return withdrawOK;
+		} else {
+			compteDebite.setBalance(compteDebite.getBalance() - cash);
+			this.daoAccount.update(compteDebite);
+			return withdrawOK;
+		}
+		
 	}
 
 	/**

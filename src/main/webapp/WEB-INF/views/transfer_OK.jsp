@@ -36,7 +36,7 @@
 	<h1 class="page-title">Virement bancaire réussi. Vous pouvez revenir sur la page d'accueil.</h1>
 
 	<div class="transfer-button">
-		<a href="index.html">
+		<a href="/client.html?id=${client.id}">
 			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>
