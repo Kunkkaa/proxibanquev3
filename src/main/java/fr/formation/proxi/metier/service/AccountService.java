@@ -59,7 +59,7 @@ public class AccountService {
 	}
 
 	/**
-	 * Recup�re la liste des comptes �pargne d'un client.
+	 * Recupère la liste des comptes épargne d'un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes �pargne.
 	 * @return La liste des comptes �pargne du client.
@@ -79,7 +79,7 @@ public class AccountService {
 	}
 
 	/**
-	 * Recup�re la liste des comptes courant d'un client.
+	 * Recupère la liste des comptes courant d'un client.
 	 * 
 	 * @param idClient L'id du client dont on veut les comptes courant.
 	 * @return La liste des comptes courant du client.
@@ -98,6 +98,12 @@ public class AccountService {
 		return CurrentAccounts;
 	}
 
+	/**
+	 * Créer une nouvelle carte si et seulement si la date d'expiration de 3 mois est atteinte.
+	 * @param accountId
+	 * @param type
+	 * @return un booléen de résultat
+	 */
 
 	public boolean newCard(Integer accountId, String type) {
 		boolean resultOk = true;
@@ -105,8 +111,6 @@ public class AccountService {
 
 		if (account.getCard() != null) {
 			if (account.getCard().getExpirationDate().isBefore(LocalDate.now())) {
-				
-				
 				
 				
 				Integer cardId = account.getCard().getId();
@@ -119,12 +123,6 @@ public class AccountService {
 				this.accountDao.update(account);
 				// Suppression de la carte.
 				this.cardDao.delete(cardId);
-				
-				
-				
-				
-				
-				
 				
 			} else {
 				resultOk = false;
@@ -143,16 +141,17 @@ public class AccountService {
 		return resultOk;
 	}
 
-	public void withdrawCash(float montant) {
-
-	}
-
 
 	public AccountDao getDao() {
 		return this.accountDao;
 	}
 
 
+	/**
+	 * Redéfinition de la méthode read de la Dao.
+	 * @param id
+	 * @return
+	 */
 	
 	public Account read(Integer id) {
 		return this.accountDao.read(id);

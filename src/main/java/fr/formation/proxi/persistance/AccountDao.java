@@ -24,7 +24,7 @@ public class AccountDao extends AbstractDao<Account> {
 
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Recupere un compte en particulier � partir de son id.
+	 * <br><br>Recupere un compte en particulier à partir de son id.
 	 */
 	@Override
 	public Account read(Integer id) {
@@ -33,7 +33,7 @@ public class AccountDao extends AbstractDao<Account> {
 	
 	/**
 	 * {@inheritDoc}
-	 * <br><br>Recupere l'ensemble des comptes enregistres. Pas encore implementee car non utilisee par l'application actuellement.
+	 * <br><br>Recupère l'ensemble des comptes enregistrés. Pas encore implementee car non utilisee par l'application actuellement.
 	 */
 	@Override
 	public List<Account> readAll() {

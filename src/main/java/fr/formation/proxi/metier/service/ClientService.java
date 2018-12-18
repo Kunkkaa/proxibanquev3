@@ -49,13 +49,13 @@ public class ClientService {
 	}
 
 	/**
-	 * Permet de faire un virement entre deux comptes d'un m�me client. Cette
-	 * m�thode ne fait pas de virement intra-compte ni de virement qui rendrait
-	 * le compte d�bit� en solde n�gatif.
+	 * Permet de faire un virement entre deux comptes d'un même client. Cette
+	 * méthode ne fait pas de virement intra-compte ni de virement qui rendrait
+	 * le compte débité en solde négatif.
 	 * 
-	 * @param value         Le montant du virement � effectuer.
-	 * @param compteDebite  Le compte � d�biter.
-	 * @param compteCredite Le compte � cr�diter
+	 * @param value         Le montant du virement à effectuer.
+	 * @param compteDebite  Le compte à débiter.
+	 * @param compteCredite Le compte à créditer
 	 * @return False si le virement aurait rendu le compte d�bit� en solde
 	 *         n�gatif. True sinon.
 	 */
@@ -83,13 +83,18 @@ public class ClientService {
 			return transferOK;
 		}
 	}
-
+	
+	/**
+	 * Permet un retrait de liquide par un client depuis un de ses comptes associés.
+	 * Ne permet pas de retraits de plus de 300€, ni de retrait qui rendrait le compte 
+	 * en solde négatif.
+	 * @param cash
+	 * @param accountId
+	 * @return
+	 */
 	public Boolean withdrawCash(float cash, Integer accountId) {
 		boolean withdrawOK = true;
-		//Client client = this.daoClient.read(clientId);
-		//Account compteDebite = client.getAccountById(debitId);
 		Account compteDebite = this.daoAccount.read(accountId);
-		
 		
 		if (cash > 300) {
 			withdrawOK = false;
@@ -107,21 +112,27 @@ public class ClientService {
 
 
 	/**
-	 * Permet de r�cup�rer un client � partir de son id dans la Base De Donn�es.
+	 * Permet de récupérer un client à partir de son id dans la Base De Données.
 	 * 
-	 * @param id L'id du client � r�cup�rer.
+	 * @param id L'id du client à récupérer.
 	 * @return Le client.
 	 */
 	public Client read(Integer id) {
 		return this.daoClient.read(id);
 	}
 	
+	/**
+	 * Vérification si le nom et prénom rentrés sont conformes à un utilisateur
+	 * @param firstname
+	 * @param lastname
+	 * @return
+	 */
 	public Client check(String firstname , String lastname) {
 		return this.daoClient.check(firstname, lastname);
 	}
 
 	/**
-	 * Permet de mettre � jour les informations d'un client. Cette m�thode g�re
+	 * Permet de mettre à jour les informations d'un client. Cette m�thode g�re
 	 * la modification du nom, du pr�nom, du mail et de l'adresse du client.
 	 * 
 	 * @param client L'id du client � actualiser.
