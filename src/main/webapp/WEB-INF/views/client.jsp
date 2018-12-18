@@ -47,66 +47,121 @@
 		</div>
 	</header>
 
+
+
+
+
 	<section class="account-body">
 		<div class="header-account">
-			<h1 class="page-title">Liste des comptes</h1>
-			<div class="transfer-button">
-				<a href="transfer.html?id=${id}">
-					<button class="button">Faire un virement</button>
-				</a>
-			</div>
+			<h1 class="page-title">Liste des comptes courants</h1>
 		</div>
-		<div class="account-list">
-			<div class="left-list">
-				<h2>Liste des comptes courant</h2>
-				<c:if test="${empty currentAccounts}">
-					<h4>Aucun compte associé à ce client.</h4>
-				</c:if>
-				<c:if test="${not empty currentAccounts}">
-					<table>
-						<tr>
-							<th>Numero de compte</th>
-							<th class="balance">Solde en &#8364</th>
-						</tr>
+		<div class="client-display">
+			<div class="client-container">
+				<div class="client-contain">
+
+
+
+					<c:if test="${empty currentAccounts}">
+						<h4>Aucun compte associé à ce client.</h4>
+					</c:if>
+
+					<c:if test="${not empty currentAccounts}">
 						<c:forEach var="currentAccount" items="${currentAccounts }">
-							<tr class="data">
-								<c:if test="${currentAccount.card.isElectron}">
-									<h2>Votre carte est une Electron</h2>
-								</c:if>
 
-								<c:if test="${currentAccount.card.isElectron}">
-									<h2>Votre carte est une Premier</h2>
-								</c:if>
-								<td>${currentAccount.card.number}</td>
-								<td class="balance">${currentAccount.balance}</td>
-							</tr>
+							<p class="name">Numéro de compte : ${currentAccount.number}</p>
+
+							<p class="text">Solde compte : ${currentAccount.balance}</p>
+
+							<p class="text">Date ouverture compte :
+								${currentAccount.openingDate}</p>
+
+							<p class="text">Label compte : ${currentAccount.label}</p>
+
+							<div class="button-container">
+
+								<div>
+									<a href="transfer.html?id=${currentAccount.id}">
+										<button class="button">Virement</button>
+									</a>
+								</div>
+								<div>
+									<div>
+										<a href="card.html?id=${currentAccount.id}">
+											<button class="button">Commander Carte</button>
+										</a>
+									</div>
+								</div>
+								<div>
+									<a href="cash.html?id=${currentAccount.id}/${client.id}">
+										<button class="button">Faire un retrait Cash</button>
+									</a>
+								</div>
+								<div>
+									<a href="cheque.html?id=${currentAccount.id}">
+										<button class="button">Commander un Chéquier</button>
+									</a>
+								</div>
+							</div>
 						</c:forEach>
-					</table>
-				</c:if>
+					</c:if>
+
+				</div>
 			</div>
-			<div class="right-list">
-				<h2>Liste des comptes epargne</h2>
-				<c:if test="${empty savingAccounts}">
-					<h4>Aucun compte associé à ce client.</h4>
-				</c:if>
-				<c:if test="${not empty savingAccounts}">
-					<table>
-						<tr>
-							<th>Numero de compte</th>
-							<th class="balance">Solde en &#8364</th>
-						</tr>
-						<c:forEach var="savingAccount" items="${savingAccounts }">
-							<tr class="data">
-								<td>${savingAccount.number}</td>
-								<td class="balance">${savingAccount.balance}</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</c:if>
-			</div>
+
 		</div>
 
-	</section>
+
+		<h1 class="page-title">Liste des comptes d'épargnes</h1>
+
+		<div class="client-display">
+			<div class="client-container">
+				<div class="client-contain">
+					<c:if test="${empty savingAccounts}">
+						<h4>Aucun compte associé à ce client.</h4>
+					</c:if>
+
+					<c:if test="${not empty savingAccounts}">
+						<c:forEach var="savingAccount" items="${savingAccounts}">
+
+							<p class="name">Numéro de compte : ${savingAccount.number}</p>
+
+							<p class="text">Solde compte : ${savingAccount.balance}</p>
+
+							<p class="text">Solde compte : ${savingAccount.openingDate}</p>
+
+							<p class="text">Label compte : ${savingAccount.label}</p>
+
+							<div class="button-container">
+
+								<div>
+									<a href="transfer.html?id=${savingAccount.id}">
+										<button class="button">Virement</button>
+									</a>
+								</div>
+								<div>
+									<a href="cash.html?id=${savingAccount.id}">
+										<button class="button">Faire un retrait Cash</button>
+									</a>
+								</div>
+								<div>
+									<a href="cheque.html?id=${savingAccount.id}">
+										<button class="button">Commander un Chéquier</button>
+									</a>
+								</div>
+							</div>
+						</c:forEach>
+					</c:if>
+
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+	
 
 	<!-- Affichage des clients -->
 	<section id="clients-display">
@@ -126,26 +181,7 @@
 
 					<p class="text">${client.address.country}</p>
 
-					<div class="button-container">
 
-						<div>
-							<a href="transfer.html?id=${client.id}">
-								<button class="button">Virement</button>
-							</a>
-						</div>
-						<div>
-							<div>
-								<a href="card.html?id=${client.id}">
-									<button class="button">Changer de Carte</button>
-								</a>
-							</div>
-						</div>
-						<div>
-							<a href="delete_card.html?id=${client.id}">
-								<button class="button">Supprimer la carte</button>
-							</a>
-						</div>
-					</div>
 				</div>
 			</div>
 

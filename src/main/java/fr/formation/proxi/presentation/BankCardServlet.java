@@ -35,6 +35,18 @@ public class BankCardServlet extends HttpServlet {
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		Client client = ClientService.getInstance().read(id);
+		
+		for (Account a : client.getAccounts()) {
+			if(!a.isCurrent(a)) {
+				System.out.println("pas de comptes courants");
+				this.getServletContext()
+				.getRequestDispatcher("/WEB-INF/views/error.jsp")
+				.forward(req, resp);
+				
+			}
+		}
+		
+		
 		req.setAttribute("client", client);
 		this.getServletContext()
 				.getRequestDispatcher("/WEB-INF/views/card.jsp")
