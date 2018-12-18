@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>ProxibanqueSIV2</display-name>
+  
+  
   <servlet>
     <servlet-name>Servlet de déconnexion</servlet-name>
     <servlet-class>fr.formation.proxi.presentation.LogoutServlet</servlet-class>
@@ -9,31 +11,9 @@
     <servlet-name>Servlet de déconnexion</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Servlet pour l'ajout de carte</servlet-name>
-    <servlet-class>fr.formation.proxi.presentation.BankCardServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Servlet pour l'ajout de carte</servlet-name>
-    <url-pattern>/card.html</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Servlet pour la suppression de carte</servlet-name>
-    <servlet-class>fr.formation.proxi.presentation.DeleteCardServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Servlet pour la suppression de carte</servlet-name>
-    <url-pattern>/delete_card.html</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>IndexServlet</servlet-name>
-    <servlet-class>fr.formation.proxi.presentation.IndexServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>IndexServlet</servlet-name>
-    <url-pattern>/index.html</url-pattern>
-  </servlet-mapping>
-  
+
+
+
   <servlet>
     <servlet-name>TransferServlet</servlet-name>
     <servlet-class>fr.formation.proxi.presentation.TransferServlet</servlet-class>
@@ -45,6 +25,16 @@
   
   
   
+   <servlet>
+    <servlet-name>BankCardServlet</servlet-name>
+    <servlet-class>fr.formation.proxi.presentation.BankCardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BankCardServlet</servlet-name>
+    <url-pattern>/card.html</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>SearchServlet</servlet-name>
     <servlet-class>fr.formation.proxi.presentation.SearchServlet</servlet-class>
@@ -54,10 +44,7 @@
     <url-pattern>/search.html</url-pattern>
   </servlet-mapping>
   
-  
   <servlet>
-  
-  
     <servlet-name>EditorServlet</servlet-name>
     <servlet-class>fr.formation.proxi.presentation.EditorServlet</servlet-class>
   </servlet>

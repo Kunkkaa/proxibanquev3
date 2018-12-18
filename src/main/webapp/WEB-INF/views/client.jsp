@@ -86,13 +86,13 @@
 								</div>
 								<div>
 									<div>
-										<a href="card.html?id=${currentAccount.id}">
+										<a href="card.html?id=${client.id}&accountId=${currentAccount.id}">
 											<button class="button">Commander Carte</button>
 										</a>
 									</div>
 								</div>
 								<div>
-									<a href="cash.html?id=${currentAccount.id}/${client.id}">
+									<a href="cash.html?id=${currentAccount.id}">
 										<button class="button">Faire un retrait Cash</button>
 									</a>
 								</div>

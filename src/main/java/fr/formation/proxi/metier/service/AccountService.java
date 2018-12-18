@@ -1,5 +1,6 @@
 package fr.formation.proxi.metier.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import fr.formation.proxi.metier.entity.BankCard;
 import fr.formation.proxi.metier.entity.CurrentAccount;
 import fr.formation.proxi.metier.entity.SavingsAccount;
 import fr.formation.proxi.persistance.AccountDao;
+import fr.formation.proxi.persistance.CardDao;
 import fr.formation.proxi.persistance.ClientDao;
 
 /**
@@ -22,10 +24,13 @@ public class AccountService {
 	private static final AccountService INSTANCE = new AccountService();
 	private AccountDao accountDao;
 	private ClientDao clientDao;
-	
+	private CardDao cardDao;
+
 	public AccountService() {
 		this.accountDao = AccountDao.getInstance();
 		this.clientDao = ClientDao.getInstance();
+		this.cardDao = CardDao.getInstance();
+
 	}
 
 	/**
@@ -92,19 +97,59 @@ public class AccountService {
 		return CurrentAccounts;
 	}
 
-	public void withdrawCash(float montant ) {
+	public boolean newCard(Integer accountId, String type) {
+		boolean resultOk = true;
+		CurrentAccount account = (CurrentAccount) this.accountDao.read(accountId);
+
+		if (account.getCard() != null) {
+			if (account.getCard().getExpirationDate().isBefore(LocalDate.now())) {
+				
+				
+				
+				
+				Integer cardId = account.getCard().getId();
+				// Retirer le lien entre l'ancienne carte et le compte.
+				account.setCard(null);
+				// Mettre à jour le compte pour que le lien n'existe plus en BDD.
+				this.accountDao.update(account);				
+				// Mettre à jour le compte pour que le lien n'existe plus en
+				// BDD.
+				this.accountDao.update(account);
+				// Suppression de la carte.
+				this.cardDao.delete(cardId);
+				
+				
+				
+				
+				
+				
+				
+			} else {
+				resultOk = false;
+			}
+		}
 		
-		
-		
-		
+		if (resultOk) {
+			BankCard newCard = new BankCard();
+			newCard.setExpirationDate(LocalDate.now().plusMonths(3));
+			newCard.setIsElectron(type);
+			newCard = this.cardDao.create(newCard);
+			account.setCard(newCard);
+			this.accountDao.update(account);
+		}
+
+		return resultOk;
 	}
-	
-	
+
+	public void withdrawCash(float montant) {
+
+	}
+
 	public AccountDao getDao() {
 		return this.accountDao;
 	}
 
-	//public void update(BankCard newCard) {
-		//this.accountDao.update(newCard);
-	//}
+	// public void update(BankCard newCard) {
+	// this.accountDao.update(newCard);
+	// }
 }
