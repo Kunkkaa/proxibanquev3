@@ -48,15 +48,6 @@ public class BankCardServlet extends HttpServlet {
 		}
 		
 
-
-	/**
-	 * Methode permettant de recuperer les resultats d'un formulaire sur
-	 * editor.jsp. Recupere les differents elements entres dans le formulaire
-	 * pour la modification du client. Cree une nouvelle instance de client avec
-	 * les elements recuperes et l'envoie a la classe ClientService pour
-	 * modifier les informations dans la base de donnees. Redirige l'utilisateur
-	 * sur la page d'accueil.
-	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

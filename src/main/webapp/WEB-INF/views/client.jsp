@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +16,9 @@
 <meta name="author" content="">
 <title>ProxiBanque SI</title>
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type=text/javascript src="js/cheque.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -97,10 +105,13 @@
 									</a>
 								</div>
 								<div>
-									<a href="cheque.html?id=${currentAccount.id}">
-										<button class="button">Commander un Chéquier</button>
+									<a>
+										<button id="${currentAccount.id}" onclick="check(event)" class="button">Commander un Chéquier</button>
 									</a>
+									
 								</div>
+								<div id="statusmsg"> </div>
+								
 							</div>
 						</c:forEach>
 					</c:if>
@@ -144,8 +155,8 @@
 									</a>
 								</div>
 								<div>
-									<a href="cheque.html?id=${savingAccount.id}">
-										<button class="button">Commander un Chéquier</button>
+									<a>
+										<button id="${savingAccount.id}" onclick="check(event)" class="button">Commander un Chéquier</button>
 									</a>
 								</div>
 							</div>

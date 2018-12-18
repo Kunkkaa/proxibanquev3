@@ -6,6 +6,7 @@ import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.entity.BankCard;
+import fr.formation.proxi.metier.entity.Check;
 import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.entity.CurrentAccount;
 import fr.formation.proxi.metier.entity.SavingsAccount;
@@ -142,6 +143,31 @@ public class AccountService {
 
 		return resultOk;
 	}
+	
+	
+	
+	public ChequeStatus statusCheque(Integer id) {
+		Account account = this.accountDao.read(id);
+		Check cheque = account.getCheck();
+		ChequeStatus status = null;
+		
+		if(cheque == null) {
+			
+			 status = new ChequeStatus("Premier chequier en cours de distribution ...", true);
+			
+		} else if (cheque.getreceptionDate().plusMonths(3).isBefore(LocalDate.now()) ) {
+			
+			status = new ChequeStatus("Tu auras ton cheque" , true );
+			
+		} else {
+			
+			status = new ChequeStatus("Tu auras pas ton cheque" , false );
+			
+		}
+		return status;
+	}
+	
+	
 
 	public void withdrawCash(float montant) {
 
