@@ -36,7 +36,7 @@
 	<h1 class="page-title">Virement bancaire réussi. Vous pouvez revenir sur la page d'accueil.</h1>
 
 	<div class="transfer-button">
-		<a href="/client.html?id=${client.id}">
+		<a href="/proxibanquev3/client.html?id=${clientId}">
 			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>

@@ -38,8 +38,7 @@
 	
 	<section class="account-body">
 		<c:if test="${not empty transferRate}">
-			<h1 class="page-title">Erreur : Le compte à debiter aura un solde negatif avec le
-				montant renseigné</h1>
+			<h1 class="page-title">Erreur : Vous essayez de rentrer un montant trop important, ou votre compte n'est pas assez fournis</h1>
 		</c:if>
 	
 		<c:if test="${fn:length(accounts) > 1}">
@@ -94,7 +93,7 @@
 			</div>
 		</c:if>
 		<div class="footer-button">
-			<a href="/client.html?id=${client.id}">
+			<a href="/proxibanquev3/client.html?id=${clientId}">
 				<button class="button">Retour à l'accueil</button>
 			</a>
 		</div>

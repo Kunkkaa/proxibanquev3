@@ -42,6 +42,8 @@ public class TransferServlet extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		Client client = ClientService.getInstance().read(id);
 		List<Account> accounts = this.accS.getAll(id);
+		req.setAttribute("clientId", id);
+		
 		if (accounts.size() <= 1) {
 			req.setAttribute("client", client);
 			req.getServletContext().getRequestDispatcher("/WEB-INF/views/error_transfer.jsp").forward(req, resp);
@@ -66,6 +68,7 @@ public class TransferServlet extends HttpServlet {
 		Float val = Float.parseFloat(req.getParameter("value"));
 
 		Boolean transferOK = ClientService.getInstance().transfer(val, compteDebite, compteCredite, clientId);
+		req.setAttribute("clientId", clientId);
 
 		if (!transferOK) {
 			req.setAttribute("transferRate", transferOK);
