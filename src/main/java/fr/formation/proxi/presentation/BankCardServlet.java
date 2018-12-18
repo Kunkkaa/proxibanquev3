@@ -33,25 +33,21 @@ public class BankCardServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		Integer id = Integer.parseInt(req.getParameter("id"));
-		Client client = ClientService.getInstance().read(id);
 		
-		for (Account a : client.getAccounts()) {
-			if(!a.isCurrent(a)) {
-				System.out.println("pas de comptes courants");
-				this.getServletContext()
-				.getRequestDispatcher("/WEB-INF/views/error.jsp")
-				.forward(req, resp);
-				
-			}
+		
+	
+		// String type = req.getParameter("type");
+		
+		
+	
+			this.getServletContext()
+			.getRequestDispatcher("/WEB-INF/views/typeCard.jsp")
+			.forward(req, resp);
+
+			
 		}
 		
-		
-		req.setAttribute("client", client);
-		this.getServletContext()
-				.getRequestDispatcher("/WEB-INF/views/card.jsp")
-				.forward(req, resp);
-	}
+
 
 	/**
 	 * Methode permettant de recuperer les resultats d'un formulaire sur
@@ -64,17 +60,25 @@ public class BankCardServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-//		Integer id = Integer.parseInt(req.getParameter("id"));
-//		String number = req.getParameter("number");
-//		String type = req.getParameter("type");
-//		
-//		// TODO mettre le bon type
-//		BankCard newCard = BankCardService.getInstance().create(number, true);
-//		CurrentAccount account = (CurrentAccount) AccountService.getInstance().getAll(id);
-//		account.setCard(newCard);
-//		AccountService.getInstance().update(newCard);
-//
-//		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
-//	}
+		
+		
+		Integer idAccount = Integer.parseInt(req.getParameter("accountId"));
+		Integer idClient = Integer.parseInt(req.getParameter("id"));
+		
+		boolean a = AccountService.getInstance().newCard(idAccount,req.getParameter("type"));
+		
+		if(a) {
+			
+			resp.sendRedirect(this.getServletContext().getContextPath()+"/search.html?id="+idClient);
+
+			
+		} else {
+			
+			this.getServletContext()
+			.getRequestDispatcher("/WEB-INF/views/error_transfer.jsp")
+			.forward(req, resp);
+			
+		}
+		
 }
 }

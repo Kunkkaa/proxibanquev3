@@ -86,7 +86,7 @@
 								</div>
 								<div>
 									<div>
-										<a href="card.html?id=${currentAccount.id}">
+										<a href="card.html?id=${client.id}&accountId=${currentAccount.id}">
 											<button class="button">Commander Carte</button>
 										</a>
 									</div>

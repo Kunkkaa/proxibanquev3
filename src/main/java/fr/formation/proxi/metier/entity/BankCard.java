@@ -22,15 +22,23 @@ public class BankCard {
 	private String number;
 	
 	@Column
-	private Boolean isElectron;
+	private String isElectron;
 	
 	@Column
 	private LocalDate expirationDate;
 	
+	public LocalDate getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(LocalDate expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
 	public BankCard() {
 	}
 	
-	public BankCard(String number, Boolean isElectron) {
+	public BankCard(String number, String isElectron) {
 		this.number = number;
 		this.isElectron = isElectron;
 	}
@@ -51,11 +59,11 @@ public class BankCard {
 		this.number = number;
 	}
 
-	public Boolean getIsElectron() {
+	public String getIsElectron() {
 		return isElectron;
 	}
 
-	public void setIsElectron(Boolean isElectron) {
+	public void setIsElectron(String isElectron) {
 		this.isElectron = isElectron;
 	}
 
