@@ -32,14 +32,12 @@ public class CashServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		Integer accountId = Integer.parseInt(req.getParameter("id"));
+		Integer accountId = Integer.parseInt(req.getParameter("accountId"));
 		Float val = Float.parseFloat(req.getParameter("value"));
-		Integer id = Integer.parseInt(req.getParameter("id"));
-		
-		Client client = ClientService.getInstance().read(id);
-
+		Integer clientId = Integer.parseInt(req.getParameter("id"));
+	
 		Boolean withdrawOK = ClientService.getInstance().withdrawCash(val, accountId);
-		req.setAttribute("client", client);
+		req.setAttribute("clientId", clientId);
 
 		if (!withdrawOK) {
 			req.setAttribute("withdrawRate", withdrawOK);

@@ -1,14 +1,10 @@
 package fr.formation.proxi.metier.service;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.entity.Client;
-import fr.formation.proxi.metier.entity.CurrentAccount;
 import fr.formation.proxi.persistance.AccountDao;
 import fr.formation.proxi.persistance.ClientDao;
 

@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Erreur transfer</title>
+<title>Transfer Effectué</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 	<h1 class="page-title">Votre Retrait a été effectué. Rendez-vous dans votre agence la plus proche pour les récupérer !</h1>
 
 	<div class="transfer-button">
-		<a href="/proxibanquev3/client.html?id=${client.id}">
+		<a href="/proxibanquev3/client.html?id=${clientId}">
 			<button class="button">Retour à l'accueil</button>
 		</a>
 	</div>

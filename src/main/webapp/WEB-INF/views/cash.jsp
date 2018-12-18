@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Transfert effectue</title>
+<title>Transfert en cours</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,7 +40,7 @@
 
 
 	<c:if test="${not empty withdrawRate}">
-		<h1 class="page-title">Erreur : Le retrait est impossible</h1>
+		<h1 class="page-title">Erreur : Ce montant de retrait n'est pas autorisé</h1>
 	</c:if>
 	
 <form method="post" action="">
@@ -53,12 +53,6 @@
 	</div>
 </form>
 
-
-	<div class="footer-button">
-		<a href="/proxibanquev3/client.html?id=${client.id}">
-			<button class="button">Retour à l'accueil</button>
-		</a>
-	</div>
 
 </body>
 </html>

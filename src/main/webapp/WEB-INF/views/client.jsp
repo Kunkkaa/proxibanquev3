@@ -92,7 +92,7 @@
 									</div>
 								</div>
 								<div>
-									<a href="cash.html?id=${currentAccount.id}">
+									<a href="cash.html?id=${client.id}&accountId=${currentAccount.id}">
 										<button class="button">Faire un retrait Cash</button>
 									</a>
 								</div>
@@ -139,7 +139,7 @@
 									</a>
 								</div>
 								<div>
-									<a href="cash.html?id=${savingAccount.id}">
+									<a href="cash.html?id=${client.id}&accountId=${savingAccount.id}">
 										<button class="button">Faire un retrait Cash</button>
 									</a>
 								</div>
