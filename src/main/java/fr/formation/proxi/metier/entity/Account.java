@@ -24,14 +24,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 // Déclare la colonne SQL à utiliser pour différencier les sous-classes de Account (soit CurrentAccount ou SavingsAccount).
 @DiscriminatorColumn(name = "savings")
-/*
- * L'annotation ci-dessous est désactivée car elle ne fonctionne que si la
- * classe mère Account n'est JAMAIS utilisée dans les entités. Or on l'utilise
- * dans la classe Client avec List<Account>. On doit donc utiliser @Entity à la
- * place. Il ne peut il y avoir qu'une des deux annotations @Entity
- * ou @MappedSuperclass sur une entité JPA.
- */
-//@MappedSuperclass
+
 public class Account {
 
 	/**
@@ -43,7 +36,7 @@ public class Account {
 	private Integer id;
  
 	/**
-	 * Identifiant meier, numero du compte sur 9 chiffres.
+	 * Identifiant metier, numero du compte sur 9 chiffres.
 	 */
 	@Column
 	private String number;
