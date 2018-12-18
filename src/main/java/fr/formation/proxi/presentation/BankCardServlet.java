@@ -64,6 +64,8 @@ public class BankCardServlet extends HttpServlet {
 		
 		Integer idAccount = Integer.parseInt(req.getParameter("accountId"));
 		Integer idClient = Integer.parseInt(req.getParameter("id"));
+		req.setAttribute("idclient", idClient);
+		
 		
 		boolean a = AccountService.getInstance().newCard(idAccount,req.getParameter("type"));
 		
@@ -75,7 +77,7 @@ public class BankCardServlet extends HttpServlet {
 		} else {
 			
 			this.getServletContext()
-			.getRequestDispatcher("/WEB-INF/views/error_transfer.jsp")
+			.getRequestDispatcher("/WEB-INF/views/error_card.jsp")
 			.forward(req, resp);
 			
 		}
